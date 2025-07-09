@@ -1,33 +1,74 @@
-// src/components/Footer/Footer.jsx
 import React from 'react';
-// import { ReactComponent as Logo } from '../../assets/images/logo.svg';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import { Link } from 'react-router-dom';
+import { 
+  Facebook, 
+  Twitter, 
+  Instagram, 
+  LinkedIn,
+  ArrowForward
+} from '@mui/icons-material';
 import './Footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="footer-container">
         <div className="footer-grid">
-          <div className="footer-brand">
-            {/* <Logo className="footer-logo" /> */}
-            <p>Sustainable plant protein for a healthier planet</p>
+          {/* Address Section */}
+          <div className="footer-section">
+            <h3 className="footer-heading">Address</h3>
+            <address className="footer-address">
+              123 Greenway Boulevard<br />
+              Eco Valley, CA 90210<br />
+              United States
+            </address>
+          </div>
+
+          {/* Follow Us Section */}
+          <div className="footer-section">
+            <h3 className="footer-heading">Follow Us</h3>
             <div className="social-links">
-              <a href="#instagram" aria-label="Instagram">
-                <InstagramIcon />
+              <a href="https://facebook.com" aria-label="Facebook">
+                <Facebook className="social-icon" />
               </a>
-              <a href="#facebook" aria-label="Facebook">
-                <FacebookIcon />
+              <a href="https://twitter.com" aria-label="Twitter">
+                <Twitter className="social-icon" />
               </a>
-              <a href="#twitter" aria-label="Twitter">
-                <TwitterIcon />
+              <a href="https://instagram.com" aria-label="Instagram">
+                <Instagram className="social-icon" />
+              </a>
+              <a href="https://linkedin.com" aria-label="LinkedIn">
+                <LinkedIn className="social-icon" />
               </a>
             </div>
           </div>
-          
-          {/* ... rest of footer content ... */}
+
+          {/* Contact Button */}
+          <div className="footer-section">
+            <Link to="/contact" className="footer-cta">
+              Contact Us <ArrowForward className="arrow-icon" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Bottom Footer */}
+        <div className="footer-bottom">
+          <div className="legal-links">
+            <Link to="/privacy-policy" className="legal-link">
+              Privacy Policy
+            </Link>
+          </div>
+          <div className="credits">
+            <span>Designed by </span>
+            <a href="https://github.com/MrHackeric" target="_blank" rel="noopener noreferrer" className="credit-link">
+              MrHackeric
+            </a>
+            <span> and </span>
+            <a href="https://github.com/dsyengo" target="_blank" rel="noopener noreferrer" className="credit-link">
+              Master
+            </a>
+            <span> © {new Date().getFullYear()} All rights reserved</span>
+          </div>
         </div>
       </div>
     </footer>
