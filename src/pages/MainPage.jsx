@@ -1,6 +1,6 @@
 import React from "react";
 import HomePage from "./homepage/HomePage";
-import ContactPage from "./contact/Contact";
+import ContactPage from "./contact/ContactPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
