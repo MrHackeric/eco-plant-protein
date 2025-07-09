@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.svg?react';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+import { Menu, Close, ArrowForward } from '@mui/icons-material';
 import './Header.css';
 
 const Header = () => {
@@ -10,9 +9,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -34,21 +31,24 @@ const Header = () => {
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        <Link to="/" className="logo-link">
-          <Logo className="logo" aria-label="Econutri logo" />
-          <span className="logo-text">econutri</span>
-        </Link>
+        <div className="logo-container">
+          <Link to="/" className="logo-link">
+            <Logo className="logo" aria-label="Econutri logo" />
+            <span className="logo-text">econutri</span>
+          </Link>
+        </div>
 
         <nav className={`nav ${isMenuOpen ? 'mobile-open' : ''}`}>
           <ul>
-            {navItems.map((item) => (
-              <li key={item.name}>
+            {navItems.map((item, index) => (
+              <li key={item.name} className={`nav-item-${index}`}>
                 <Link
                   to={item.path}
                   className={`nav-link ${item.isCta ? 'cta-button' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
+                  {item.isCta && <ArrowForward className="arrow-icon" />}
                   {!item.isCta && <span className="link-underline"></span>}
                 </Link>
               </li>
@@ -63,9 +63,9 @@ const Header = () => {
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         >
           {isMenuOpen ? (
-            <CloseIcon className="menu-icon" />
+            <Close className="menu-icon" />
           ) : (
-            <MenuIcon className="menu-icon" />
+            <Menu className="menu-icon" />
           )}
         </button>
       </div>
