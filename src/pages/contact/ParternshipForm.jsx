@@ -1,3 +1,6 @@
+import React from "react";
+import { FaEnvelope, FaBuilding, FaComment } from "react-icons/fa";
+
 const PartnershipForm = () => {
   return (
     <section className="partnership-form">

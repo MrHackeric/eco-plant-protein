@@ -1,3 +1,9 @@
+
+import React from "react";
+import {
+   FaLinkedin,
+} from "react-icons/fa";
+import { MdPets, MdAttachEmail, MdPhone } from "react-icons/md";
 const WelcomeSection = () => {
   return (
     <section className="welcome-section">

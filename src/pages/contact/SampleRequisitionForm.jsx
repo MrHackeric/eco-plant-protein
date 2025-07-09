@@ -1,3 +1,12 @@
+import React from "react";
+import {
+  FaEnvelope,
+  FaBuilding,
+  FaComment,
+  FaGlobe,
+  } from "react-icons/fa";
+import { MdPets } from "react-icons/md";
+
 const SampleRequestForm = () => {
   return (
     <section className="sample-form">
