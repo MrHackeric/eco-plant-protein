@@ -1,12 +1,12 @@
 // src/App.jsx
 import React from "react";
-import HomePage from "./pages/homepage/HomePage";
 import "./App.css";
+import MainPage from "./pages/mainPage";
 
 function App() {
   return (
-    <div className="app">
-      <HomePage />
+    <div>
+      <MainPage />
     </div>
   );
 }
