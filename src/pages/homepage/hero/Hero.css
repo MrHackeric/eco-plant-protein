@@ -18,7 +18,7 @@
 
 /* Hero Background Section */
 .hero-background {
-  background-image: url('/images/hero-bg.jpg'); /* Replace with your image */
+  background-image: url('../../../assets//images/hero-bg.jpg'); /* Common in React */
   background-size: cover;
   background-position: center;
   height: 70vh;
