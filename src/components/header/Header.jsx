@@ -34,7 +34,7 @@ const Header = () => {
         <div className="logo-container">
           <Link to="/" className="logo-link">
             <Logo className="logo" aria-label="Econutri logo" />
-            <span className="logo-text">econutri</span>
+            <span className="logo-text">Eco Plant Protein</span>
           </Link>
         </div>
 
@@ -44,7 +44,7 @@ const Header = () => {
               <li key={item.name} className={`nav-item-${index}`}>
                 <Link
                   to={item.path}
-                  className={`nav-link ${item.isCta ? 'cta-button' : ''}`}
+                  className={`nav-link ${item.isCta ? 'cta-button1' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
