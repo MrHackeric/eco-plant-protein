@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #04713d;
+  --light-green: #f4f8f5;
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #666666;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --font-main: 'Red Hat Display', sans-serif;
+}
+.fermentation-section {
+  background-color: #f6faf7;
+  padding: 5rem 2rem;
+  border-radius: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.section-label {
+  color: #2a7e4f;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.main-heading {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.text-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.fermentation-images {
+  display: flex;
+  gap: 1rem;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.fermentation-images img {
+  flex: 1;
+  min-width: 200px;
+  max-width: calc(25% - 1rem);
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.fermentation-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .fermentation-images {
+    flex-direction: column;
+  }
+
+  .fermentation-images img {
+    max-width: 100%;
+  }
+
+  .text-columns {
+    flex-direction: column;
+  }
+}

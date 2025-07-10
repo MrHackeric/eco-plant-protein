@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 
 export default defineConfig({
+  assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png'],
   plugins: [
     react(),
     svgr({
