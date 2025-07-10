@@ -102,3 +102,88 @@
     width: 280px;
   }
 }
+
+/* === Scroll Animation === */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Image Pop + Glow on Hover === */
+.sample-image {
+  width: 240px;
+  margin-bottom: 2rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.sample-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 100, 50, 0.15);
+}
+
+/* === Primary Button Hover: Slide + Glow === */
+.primary-button {
+  background: linear-gradient(to right, #058e3f, #047c36);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.primary-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.primary-button:hover::before {
+  left: 100%;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(4, 124, 54, 0.3);
+}
+
+/* === Secondary Button Hover === */
+.secondary-button {
+  background-color: #edf3ef;
+  color: #1b1b1b;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+  background-color: #dbe7df;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(100, 150, 120, 0.1);
+}
+
+/* === Smooth Arrow Movement === */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.primary-button:hover .arrow,
+.secondary-button:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* === Responsive Image Size === */
+@media (min-width: 600px) {
+  .sample-image {
+    width: 280px;
+  }
+}
