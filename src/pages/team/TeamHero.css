@@ -18,8 +18,8 @@
 }
 
 /* Hero Background Section */
-.hero-product-background1 {
-  background-image: url("../../../src/assets/images/nature-image.jpg");
+.hero-product-background2 {
+  background-image: url("../../assets/images/team-hero-image.jpg");
   background-size: cover;
   background-position: center;
   height: 70vh;
@@ -30,7 +30,7 @@
   position: relative;
 }
 
-.hero-product-background1::before {
+.hero-product-background2::before {
   content: "";
   position: absolute;
   top: 0;
@@ -112,7 +112,7 @@
     font-size: 2.4rem;
   }
 
-  .hero-product-background {
+  .hero-product-background2 {
     height: 60vh;
     min-height: 500px;
   }
@@ -132,7 +132,7 @@
     max-width: 500px;
   }
 
-  .hero-product-background {
+  .hero-product-background2 {
     height: 70vh;
     min-height: 400px;
   }

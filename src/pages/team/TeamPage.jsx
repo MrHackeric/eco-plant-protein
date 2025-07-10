@@ -23,9 +23,8 @@ const TeamPage = () => {
         />
       </Helmet>
       {/* Team Hero Section */}
-      <section className="team-section">
-        <TeamHeroSection />
-      </section>
+
+      <TeamHeroSection />
 
       {/* Founders Section */}
       <section className="team-section">

@@ -1,0 +1,345 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap");
+
+.sample-request-section {
+  background-color: #f0f0f0;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sample-request-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.sample-request-title {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.sample-request-subtitle {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.sample-request-description {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 60px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-illustration {
+  margin: 60px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.product-bags {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: -10px;
+  position: relative;
+  z-index: 2;
+}
+
+.product-bag {
+  width: 120px;
+  height: 140px;
+  border-radius: 15px 15px 5px 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin: 0 -5px;
+  transform-origin: bottom center;
+  transition: transform 0.3s ease;
+}
+
+.product-bag:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.product-bag.blue {
+  background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+  transform: rotate(-8deg);
+}
+
+.product-bag.yellow {
+  background: linear-gradient(135deg, #ffca28, #ffc107);
+  transform: rotate(2deg) scale(1.1);
+  z-index: 3;
+}
+
+.product-bag.green {
+  background: linear-gradient(135deg, #66bb6a, #4caf50);
+  transform: rotate(8deg);
+}
+
+.product-bag::before {
+  content: "eco nutri";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.decorative-plants {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 200px;
+  z-index: 1;
+}
+
+.plant-element {
+  position: absolute;
+  color: #4caf50;
+  font-size: 24px;
+  opacity: 0.6;
+  animation: float 3s ease-in-out infinite;
+}
+
+.plant-element:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.plant-element:nth-child(2) {
+  top: 30%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.plant-element:nth-child(3) {
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.plant-element:nth-child(4) {
+  bottom: 20%;
+  right: 10%;
+  animation-delay: 1.5s;
+}
+
+.plant-element:nth-child(5) {
+  top: 10%;
+  left: 50%;
+  animation-delay: 0.5s;
+}
+
+.plant-element:nth-child(6) {
+  bottom: 10%;
+  left: 50%;
+  animation-delay: 2.5s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.sample-cta-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.sample-request-button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Red Hat Display", sans-serif;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+}
+
+.sample-request-button:hover {
+  background-color: #1b5e20;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+}
+
+.partner-link {
+  color: #666;
+  text-decoration: none;
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.partner-link:hover {
+  color: #2e7d32;
+  transform: translateX(5px);
+}
+
+.partner-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #2e7d32;
+  transition: width 0.3s ease;
+}
+
+.partner-link:hover::after {
+  width: calc(100% - 30px);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  border-color: #2e7d32;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top-icon {
+  color: #666;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.back-to-top:hover .back-to-top-icon {
+  color: #2e7d32;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sample-request-section {
+    padding: 80px 20px;
+  }
+
+  .sample-request-title,
+  .sample-request-subtitle {
+    font-size: 2.5rem;
+  }
+
+  .sample-request-description {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .product-illustration {
+    height: 150px;
+    margin: 40px 0;
+  }
+
+  .product-bag {
+    width: 80px;
+    height: 100px;
+  }
+
+  .product-bag::before {
+    font-size: 8px;
+  }
+
+  .decorative-plants {
+    width: 300px;
+    height: 150px;
+  }
+
+  .plant-element {
+    font-size: 18px;
+  }
+
+  .sample-request-button {
+    padding: 18px 35px;
+    font-size: 15px;
+  }
+
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sample-request-title,
+  .sample-request-subtitle {
+    font-size: 2rem;
+  }
+
+  .product-bag {
+    width: 70px;
+    height: 85px;
+  }
+
+  .product-bag::before {
+    font-size: 7px;
+  }
+
+  .sample-request-button {
+    padding: 16px 30px;
+    font-size: 14px;
+  }
+}

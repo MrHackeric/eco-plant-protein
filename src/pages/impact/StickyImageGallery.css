@@ -3,71 +3,72 @@
 .sticky-gallery-container {
   position: relative;
   width: 100%;
+  padding: 60px 0;
 }
 
 .sticky-gallery {
   position: relative;
-  height: 600vh; /* 6 images × 100vh each */
+  height: 500vh; /* Increased for smoother transitions */
 }
 
 .sticky-wrapper {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 80px;
+  height: 75vh; /* 3/4 of viewport height */
+  width: 75vw; /* 3/4 of viewport width */
+  margin: 0 auto;
   overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
 }
 
-.image-stack {
+.images-list {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.gallery-image {
+.individual-image-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.1s ease;
+  will-change: transform, opacity;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 0;
+  transition: transform 0.3s ease;
 }
 
-.gallery-image.current {
-  z-index: 2;
-  transform: translateY(0);
-}
-
-.gallery-image.next {
-  z-index: 1;
-  transform: translateY(100%);
-}
-
-.gallery-image.prev {
-  z-index: 0;
-  transform: translateY(-100%);
+.individual-image-container:hover .gallery-image {
+  transform: scale(1.02);
 }
 
 .image-overlay1 {
   position: absolute;
   bottom: 40px;
   left: 40px;
+  right: 40px;
   background: rgba(255, 255, 255, 0.95);
-  padding: 15px 25px;
-  border-radius: 25px;
+  padding: 20px 30px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  z-index: 10;
-  font-family: "Red Hat Display", sans-serif;
-  font-weight: 600;
-  color: #333;
-  backdrop-filter: blur(10px);
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.6s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .image-overlay1.visible {
@@ -77,17 +78,27 @@
 
 .overlay-icon {
   color: #2e7d32;
-  font-size: 20px;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.overlay-text {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.3;
 }
 
 .progress-indicator {
   position: fixed;
   top: 50%;
-  right: 30px;
+  right: 40px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   z-index: 100;
 }
 
@@ -95,43 +106,83 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  transition: all 0.3s ease;
+  background: rgba(46, 125, 50, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
+  border: 2px solid rgba(46, 125, 50, 0.5);
+  position: relative;
 }
 
 .progress-dot.active {
   background: #2e7d32;
-  transform: scale(1.2);
+  border-color: #2e7d32;
+  transform: scale(1.3);
+  box-shadow: 0 0 20px rgba(46, 125, 50, 0.4);
 }
 
-.gallery-counter {
-  position: fixed;
-  bottom: 30px;
+.progress-line {
+  position: absolute;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-family: "Red Hat Display", sans-serif;
-  font-weight: 500;
-  z-index: 100;
-  backdrop-filter: blur(10px);
+  width: 3px;
+  height: 100%;
+  background: rgba(46, 125, 50, 0.2);
+  border-radius: 2px;
+  z-index: -1;
+}
+
+.progress-fill {
+  width: 100%;
+  background: linear-gradient(to bottom, #2e7d32, #4caf50);
+  border-radius: 2px;
+  transition: height 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .sticky-wrapper {
+    width: 85vw;
+    height: 70vh;
+    top: 60px;
+  }
+
+  .progress-indicator {
+    right: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .sticky-gallery {
-    height: 500vh; /* Shorter on mobile */
+    height: 400vh;
+  }
+
+  .sticky-wrapper {
+    width: 90vw;
+    height: 65vh;
+    top: 40px;
+    border-radius: 25px;
+  }
+
+  .individual-image-container {
+    border-radius: 25px;
   }
 
   .image-overlay {
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    padding: 12px 20px;
-    font-size: 14px;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+    padding: 15px 20px;
+    border-radius: 15px;
+  }
+
+  .overlay-icon {
+    font-size: 20px;
+  }
+
+  .overlay-text {
+    font-size: 1rem;
   }
 
   .progress-indicator {
@@ -142,24 +193,63 @@
     width: 10px;
     height: 10px;
   }
-
-  .gallery-counter {
-    bottom: 20px;
-    padding: 8px 16px;
-    font-size: 14px;
-  }
 }
 
 @media (max-width: 480px) {
+  .sticky-wrapper {
+    width: 95vw;
+    height: 60vh;
+    top: 20px;
+    border-radius: 20px;
+  }
+
+  .individual-image-container {
+    border-radius: 20px;
+  }
+
   .image-overlay {
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    padding: 10px 15px;
-    font-size: 12px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .overlay-icon {
+    font-size: 18px;
+  }
+
+  .overlay-text {
+    font-size: 0.9rem;
   }
 
   .progress-indicator {
     right: 15px;
+  }
+
+  .progress-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .progress-line {
+    width: 2px;
+  }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .individual-image-container,
+  .image-overlay,
+  .progress-dot,
+  .progress-fill {
+    transition: none;
+  }
+}
+
+/* Smooth scrolling for supported browsers */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
   }
 }

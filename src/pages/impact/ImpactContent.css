@@ -3,99 +3,346 @@
 .impact-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 120px 20px 80px 20px;
   text-align: center;
-}
-
-.impact-description {
-  font-family: "Red Hat Display", sans-serif;
-  font-size: 1.8rem;
-  font-weight: 400;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 60px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.impact-description .highlight {
-  color: #2e7d32;
-  font-weight: 500;
-}
-
-.impact-videos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 80px;
-}
-
-.video-container {
   position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.video-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.video-thumbnail {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
+  min-height: 180vh;
 }
 
 .impact-statement {
   font-family: "Red Hat Display", sans-serif;
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-size: 3.2rem;
+  font-weight: 700;
   color: #333;
-  line-height: 1.4;
-  max-width: 800px;
+  line-height: 1.3;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 80px 0 120px 0;
+  position: sticky;
+  top: 15vh;
+  z-index: 2;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.impact-description-container {
+  position: relative;
+  z-index: 3;
+  margin-top: 200px;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  padding: 0 20px;
+}
+
+.impact-description {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 100px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 60px 50px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.impact-description .highlight {
+  color: #2e7d32;
+  font-weight: 600;
+  position: relative;
+  padding: 2px 4px;
+  background: rgba(46, 125, 50, 0.08);
+  border-radius: 4px;
+}
+
+.impact-description .highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 4px;
+  right: 4px;
+  height: 3px;
+  background: linear-gradient(90deg, #2e7d32, #4caf50);
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+/* Cascading Video Layout */
+.impact-videos-cascade {
+  position: relative;
+  height: 600px;
+  margin: 120px auto;
+  max-width: 900px;
+  opacity: 0;
+  transform: translateY(60px);
+  animation: fadeInUp 0.8s ease 0.8s forwards;
+}
+
+.video-container {
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  background: white;
+}
+
+.video-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(46, 125, 50, 0.1),
+    rgba(76, 175, 80, 0.1)
+  );
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-container:hover::before {
+  opacity: 1;
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.video-container:hover .video-thumbnail {
+  transform: scale(1.1);
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 30px 20px 20px;
+  z-index: 2;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.video-container:hover .video-overlay {
+  transform: translateY(0);
+}
+
+.video-overlay h3 {
+  color: white;
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Individual Video Positioning - Cascading Effect */
+.video-1 {
+  top: 0;
+  left: 0;
+  transform: rotate(-8deg);
+  z-index: 4;
+}
+
+.video-1:hover {
+  transform: rotate(-8deg) scale(1.05) translateY(-10px);
+  z-index: 10;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.video-2 {
+  top: 80px;
+  right: 50px;
+  transform: rotate(12deg);
+  z-index: 3;
+}
+
+.video-2:hover {
+  transform: rotate(12deg) scale(1.05) translateY(-10px);
+  z-index: 10;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.video-3 {
+  bottom: 120px;
+  left: 100px;
+  transform: rotate(-15deg);
+  z-index: 2;
+}
+
+.video-3:hover {
+  transform: rotate(-15deg) scale(1.05) translateY(-10px);
+  z-index: 10;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.video-4 {
+  bottom: 0;
+  right: 0;
+  transform: rotate(6deg);
+  z-index: 1;
+}
+
+.video-4:hover {
+  transform: rotate(6deg) scale(1.05) translateY(-10px);
+  z-index: 10;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll-triggered animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .impact-content {
-    padding: 60px 20px;
-  }
-
-  .impact-description {
-    font-size: 1.4rem;
-    margin-bottom: 40px;
-  }
-
-  .impact-videos {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin-bottom: 60px;
-  }
-
-  .video-thumbnail {
-    height: 250px;
+    padding: 80px 15px 60px 15px;
+    min-height: 150vh;
   }
 
   .impact-statement {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
+    padding: 60px 0 80px 0;
+    top: 10vh;
+  }
+
+  .impact-description-container {
+    margin-top: 120px;
+    padding: 0 10px;
+  }
+
+  .impact-description {
+    font-size: 1.6rem;
+    margin-bottom: 80px;
+    padding: 40px 30px;
+    max-width: 100%;
+  }
+
+  .impact-videos-cascade {
+    height: 500px;
+    margin: 80px auto;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .video-container {
+    width: 280px;
+    height: 200px;
+  }
+
+  .video-1 {
+    top: 20px;
+    left: 10px;
+    transform: rotate(-5deg);
+  }
+
+  .video-2 {
+    top: 120px;
+    right: 10px;
+    transform: rotate(8deg);
+  }
+
+  .video-3 {
+    bottom: 120px;
+    left: 30px;
+    transform: rotate(-10deg);
+  }
+
+  .video-4 {
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(4deg);
+  }
+
+  .video-container:hover {
+    transform: scale(1.02) translateY(-5px);
+  }
+
+  .video-1:hover {
+    transform: rotate(-5deg) scale(1.02) translateY(-5px);
+  }
+
+  .video-2:hover {
+    transform: rotate(8deg) scale(1.02) translateY(-5px);
+  }
+
+  .video-3:hover {
+    transform: rotate(-10deg) scale(1.02) translateY(-5px);
+  }
+
+  .video-4:hover {
+    transform: rotate(4deg) scale(1.02) translateY(-5px);
   }
 }
 
 @media (max-width: 480px) {
-  .impact-description {
-    font-size: 1.2rem;
-  }
-
-  .video-thumbnail {
-    height: 200px;
+  .impact-content {
+    padding: 60px 10px 40px 10px;
+    min-height: 130vh;
   }
 
   .impact-statement {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    padding: 40px 0 60px 0;
+    top: 8vh;
+  }
+
+  .impact-description-container {
+    margin-top: 80px;
+    padding: 0 5px;
+  }
+
+  .impact-description {
+    font-size: 1.4rem;
+    padding: 30px 20px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+  }
+
+  .impact-videos-cascade {
+    height: 400px;
+    margin: 60px auto;
+    padding: 0 10px;
+  }
+
+  .video-container {
+    width: 220px;
+    height: 160px;
+    border-radius: 15px;
+  }
+
+  .video-overlay h3 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Additional smooth scroll behavior */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }

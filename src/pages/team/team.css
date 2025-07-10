@@ -516,6 +516,7 @@ body {
 .advisor-card.animate {
   opacity: 1;
   transform: translateY(0);
+  animation-delay: 200ms !important;
 }
 
 .team-hero-content {

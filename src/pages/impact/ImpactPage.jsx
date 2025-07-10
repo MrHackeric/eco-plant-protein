@@ -3,6 +3,8 @@ import ImpactHero from "./ImpactHeroSection";
 import ImpactContent from "./ImpactContent";
 import StickyImageGallery from "./StickyImageGallery";
 import SolutionSection from "./SolutionSection";
+import InterestedSection from "./InterestedSection";
+import GetInTouchButton from "../../components/common/getInTouch/GetInTouchSection";
 import { Helmet } from "react-helmet";
 
 const ImpactPage = () => {
@@ -19,6 +21,8 @@ const ImpactPage = () => {
       <ImpactContent />
       <StickyImageGallery />
       <SolutionSection />
+      <InterestedSection />
+      <GetInTouchButton />
       {/* Add more impact sections here */}
     </div>
   );

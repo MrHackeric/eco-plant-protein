@@ -1,4 +1,5 @@
 import { ArrowForward } from "@mui/icons-material";
+import "../team/team.css";
 
 const CallToActionSection = () => {
   return (
