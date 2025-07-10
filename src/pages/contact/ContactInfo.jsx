@@ -1,7 +1,7 @@
 "use client";
 import { CheckCircle, Send, LinkedIn } from "@mui/icons-material";
 
-const ContactInfo = () => {
+const ContactInfo = ({ onSampleClick, onPartnerClick }) => {
   return (
     <div className="card">
       <div className="contact-container">
@@ -26,12 +26,12 @@ const ContactInfo = () => {
           </p>
 
           <div className="action-buttons">
-            <div className="action-button">
+            <div className="action-button" onClick={onSampleClick}>
               <Send className="action-button-icon" />
               <span className="action-button-text">Request a sample</span>
             </div>
 
-            <div className="action-button">
+            <div className="action-button" onClick={onPartnerClick}>
               <CheckCircle className="action-button-icon" />
               <span className="action-button-text">Become a partner</span>
             </div>
@@ -48,7 +48,7 @@ const ContactInfo = () => {
           <div className="contact-info">
             <div className="contact-item">
               <Send className="contact-icon" />
-              <span>info@econutri.com</span>
+              <a href="#">info@ecoplantprotein.com</a>
             </div>
 
             <div className="contact-item">

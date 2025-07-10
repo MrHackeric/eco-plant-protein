@@ -84,7 +84,12 @@ const PartnershipForm = () => {
               />
               <label htmlFor="privacy" className="checkbox-label">
                 By clicking "Agree & Submit," you confirm your acceptance of our{" "}
-                <a href="#" className="privacy-link">
+                <a
+                  href="/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="privacy-link"
+                >
                   privacy policy
                 </a>
                 .

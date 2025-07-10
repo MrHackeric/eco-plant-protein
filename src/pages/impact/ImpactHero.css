@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap");
+
+.impact-hero {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.impact-hero-banner {
+  width: 100%;
+  height: 300px;
+  border-radius: 50px;
+  background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-UyTiQtLs4oMnxSnfvzuF5AyrlM9RcZ.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 80px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.impact-hero-title {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .impact-hero-banner {
+    height: 250px;
+    padding: 0 40px;
+    border-radius: 30px;
+  }
+
+  .impact-hero-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .impact-hero-banner {
+    height: 200px;
+    padding: 0 30px;
+    border-radius: 25px;
+  }
+
+  .impact-hero-title {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.privacy-policy {
+  font-family: "Red Hat Display", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  padding: 40px 0;
+  background-color: #f9f9f9;
+}
+
+.policy-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.policy-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #4caf50;
+}
+
+.policy-header h1 {
+  font-size: 2.5rem;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+}
+
+.effective-date {
+  color: #666;
+  font-style: italic;
+}
+
+.policy-section {
+  margin-bottom: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.policy-section h2 {
+  color: #4caf50;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.policy-section h3 {
+  font-size: 1.2rem;
+  margin: 20px 0 10px;
+  color: #2d2d2d;
+}
+
+.policy-section p,
+.policy-section li {
+  margin-bottom: 10px;
+}
+
+.policy-section a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.policy-section a:hover {
+  text-decoration: underline;
+}
+
+.usage-table {
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.usage-row {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.usage-row.header {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.usage-row:last-child {
+  border-bottom: none;
+}
+
+.usage-purpose {
+  flex: 2;
+  padding: 12px 15px;
+  border-right: 1px solid #eee;
+}
+
+.usage-data {
+  flex: 1;
+  padding: 12px 15px;
+}
+
+.contact-section address {
+  font-style: normal;
+  line-height: 1.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .policy-header h1 {
+    font-size: 2rem;
+  }
+
+  .policy-section {
+    padding: 20px;
+  }
+
+  .usage-row {
+    flex-direction: column;
+  }
+
+  .usage-purpose,
+  .usage-data {
+    flex: auto;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+}

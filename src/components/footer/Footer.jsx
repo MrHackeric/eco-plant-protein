@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { 
-  Facebook, 
-  Twitter, 
-  Instagram, 
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
   LinkedIn,
-  ArrowForward
-} from '@mui/icons-material';
-import './Footer.css';
+  ArrowForward,
+} from "@mui/icons-material";
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -18,8 +18,10 @@ const Footer = () => {
           <div className="footer-section">
             <h3 className="footer-heading">Address</h3>
             <address className="footer-address">
-              123 Greenway Boulevard<br />
-              Eco Valley, CA 90210<br />
+              123 Greenway Boulevard
+              <br />
+              Eco Valley, CA 90210
+              <br />
               United States
             </address>
           </div>
@@ -54,17 +56,32 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="footer-bottom">
           <div className="legal-links">
-            <Link to="/privacy-policy" className="legal-link">
+            <Link
+              to="/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="legal-link"
+            >
               Privacy Policy
             </Link>
           </div>
           <div className="credits">
             <span>Designed by </span>
-            <a href="https://github.com/MrHackeric" target="_blank" rel="noopener noreferrer" className="credit-link">
+            <a
+              href="https://github.com/MrHackeric"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="credit-link"
+            >
               MrHackeric
             </a>
             <span> and </span>
-            <a href="https://github.com/dsyengo" target="_blank" rel="noopener noreferrer" className="credit-link">
+            <a
+              href="https://github.com/dsyengo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="credit-link"
+            >
               Master
             </a>
             <span> © {new Date().getFullYear()} All rights reserved</span>
