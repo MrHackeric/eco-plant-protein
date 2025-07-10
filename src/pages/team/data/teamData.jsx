@@ -1,4 +1,6 @@
 import Founder1 from "../../../assets/images/founder-image.jpg";
+import AdvisorImage from "../../../assets/images/advisor-image.jpg";
+import TeamMemberImage from "../../../assets/images/team-member-image.jpg";
 
 export const foundersData = [
   {
@@ -12,14 +14,14 @@ export const foundersData = [
     id: 2,
     name: "Dr. Stefan Zopf",
     title: "Founder & CFO",
-    image: "/src/assets/images/founder-image.jpg",
+    image: Founder1,
     linkedinUrl: "https://linkedin.com/in/stefan-zopf",
   },
   {
     id: 3,
     name: "Dr. Christoph Reisinger",
     title: "Founder & CTO",
-    image: "/src/assets/images/founder-image.jpg",
+    image: Founder1,
     linkedinUrl: "https://linkedin.com/in/christoph-reisinger",
   },
 ];
@@ -29,19 +31,19 @@ export const advisorsData = [
     id: 1,
     name: "Prof. Bernd Nidetzky",
     title: "CSO ACIB",
-    image: "/src/assets/images/advisor-image.jpg",
+    image: AdvisorImage,
   },
   {
     id: 2,
     name: "Prof. Robert Kourist",
     title: "Prof. Molecular Biotechnology TU Graz",
-    image: "/src/assets/images/advisor-image.jpg",
+    image: AdvisorImage,
   },
   {
     id: 3,
     name: "Dr. Werner Töpfl",
     title: "Founder / Managing Director Epoona GmbH",
-    image: "/src/assets/images/advisor-image.jpg",
+    image: AdvisorImage,
   },
 ];
 
@@ -50,14 +52,14 @@ export const teamMembersData = [
     id: 1,
     name: "Dr. Petra Heidinger",
     title: "Bioprocess Advisor",
-    image: "/src/assets/images/team-member-image.jpg",
+    image: TeamMemberImage,
     hasLinkedIn: false,
   },
   {
     id: 2,
     name: "Anastasiia Torokhtti",
     title: "Business Development & Partnerships",
-    image: "/src/assets/images/team-member-image.jpg",
+    image: TeamMemberImage,
     hasLinkedIn: true,
     linkedinUrl: "https://linkedin.com/in/anastasiia-torokhtti",
   },
@@ -65,28 +67,28 @@ export const teamMembersData = [
     id: 3,
     name: "Dipl.Ing. Daniel Schwendenwein",
     title: "Fermentation & Reactor Operations",
-    image: "/src/assets/images/team-member-image.jpg",
+    image: TeamMemberImage,
     hasLinkedIn: false,
   },
   {
     id: 4,
     name: "B.Sc. Daniel Martinjak",
     title: "Fermentation & Reactor Operations",
-    image: "/src/assets/images/team-member-image.jpg",
+    image: TeamMemberImage,
     hasLinkedIn: false,
   },
   {
     id: 5,
     name: "M.Sc. Kay Domenico Novak",
     title: "Fermentation & Reactor Operations",
-    image: "/src/assets/images/team-member-image.jpg",
+    image: TeamMemberImage,
     hasLinkedIn: false,
   },
   {
     id: 6,
     name: "Dipl. Ing. Lena Pfeiffer",
     title: "Downstream Process Scientist",
-    image: "/src/assets/images/team-member-image.jpg",
+    image: TeamMemberImage,
     hasLinkedIn: true,
     linkedinUrl: "https://linkedin.com/in/lena-pfeiffer",
   },
@@ -94,7 +96,7 @@ export const teamMembersData = [
     id: 7,
     name: "Florian Haneder",
     title: "Fermentation & Reactor Operations",
-    image: "/src/assets/images/team-member-image.jpg",
+    image: TeamMemberImage,
     hasLinkedIn: false,
   },
 ];
