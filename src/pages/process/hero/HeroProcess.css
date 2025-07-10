@@ -1,0 +1,153 @@
+/* HeroProduct.css */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #04713d;
+  --light-green: #f4f8f5;
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #666666;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --font-main: 'Red Hat Display', sans-serif;
+}
+
+.hero-product-container {
+  font-family: var(--font-main);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Hero Background Section */
+.hero-product-background {
+  background-image: url('../../../assets/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-product-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-product-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
+}
+
+.hero-product-text-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 3rem;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-product-title {
+  color: var(--white);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-product-subtitle {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-product-button {
+  background-color: var(--primary-green);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: var(--transition);
+}
+
+.hero-product-button:hover {
+  background-color: #035b30;
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.hero-product-button:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .benefit-cards{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-product-title {
+    font-size: 2.4rem;
+  }
+  
+  .hero-product-background {
+    height: 60vh;
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-product-title {
+    font-size: 2rem;
+  }
+  
+  .hero-product-text-container {
+    padding: 2rem;
+  }
+  
+  .benefit-cards {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+  
+  .hero-product-background {
+    height: 70vh;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-product-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-product-text-container {
+    padding: 1.5rem;
+  }
+    
+  .benefit-card {
+    padding: 1.5rem;
+  }
+}
