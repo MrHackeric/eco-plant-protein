@@ -108,7 +108,7 @@ const StickyImageGallery = () => {
                   }}
                 />
                 <div
-                  className={`image-overlay ${
+                  className={`image-overlay1 ${
                     index === currentImageIndex ? "visible" : ""
                   }`}
                 >

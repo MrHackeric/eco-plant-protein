@@ -19,7 +19,6 @@ function MainPage() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/impact" element={<ImpactPage />} />
-        <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/process" element={<ProcessPage />} />
