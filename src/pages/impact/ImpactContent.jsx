@@ -1,4 +1,8 @@
 "use client";
+import FoodPlate from "../../assets/images/food-plate.jpg";
+import BioProcess from "../../assets/images/bio-process.jpg";
+import NatureImage from "../../assets/images/nature-image.jpg";
+import HeroBg from "../../assets/images/hero-bg.jpg";
 
 import { useEffect, useRef } from "react";
 import "./ImpactContent.css";
@@ -99,7 +103,7 @@ const ImpactContent = () => {
       <div className="impact-videos-cascade">
         <div className="video-container video-1">
           <img
-            src="/src/assets/images/food-plate.jpg"
+            src={FoodPlate}
             alt="Sustainable Agriculture"
             className="video-thumbnail"
           />
@@ -110,7 +114,7 @@ const ImpactContent = () => {
 
         <div className="video-container video-2">
           <img
-            src="/src/assets/images/bio-process.jpg"
+            src={BioProcess}
             alt="Ocean Conservation"
             className="video-thumbnail"
           />
@@ -121,7 +125,7 @@ const ImpactContent = () => {
 
         <div className="video-container video-3">
           <img
-            src="/src/assets/images/nature-image.jpg"
+            src={NatureImage}
             alt="Renewable Energy"
             className="video-thumbnail"
           />
@@ -132,7 +136,7 @@ const ImpactContent = () => {
 
         <div className="video-container video-4">
           <img
-            src="/src/assets/images/hero-bg.jpg"
+            src={HeroBg}
             alt="Carbon Reduction"
             className="video-thumbnail"
           />

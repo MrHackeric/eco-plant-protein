@@ -8,6 +8,7 @@ import {
   Recycling,
   Public,
 } from "@mui/icons-material";
+import NatureImage from "../../assets/images/nature-image.jpg";
 import "./StickyImageGallery.css";
 
 const StickyImageGallery = () => {
@@ -18,37 +19,37 @@ const StickyImageGallery = () => {
 
   const images = [
     {
-      src: "/src/assets/images/nature-image.jpg",
+      src: NatureImage,
       alt: "Reduces Overfishing",
       label: "Reduces Overfishing",
       icon: <Check />,
     },
     {
-      src: "/src/assets/images/nature-image.jpg",
+      src: NatureImage,
       alt: "Sustainable Energy",
       label: "Uses Renewable Energy",
       icon: <EnergySavingsLeaf />,
     },
     {
-      src: "/src/assets/images/nature-image.jpg",
+      src: NatureImage,
       alt: "Water Conservation",
       label: "Conserves Water Resources",
       icon: <Water />,
     },
     {
-      src: "/src/assets/images/nature-image.jpg",
+      src: NatureImage,
       alt: "Reduces Land Use",
       label: "Minimizes Agricultural Land Use",
       icon: <Agriculture />,
     },
     {
-      src: "/src/assets/images/nature-image.jpg",
+      src: NatureImage,
       alt: "Carbon Recycling",
       label: "Recycles CO2 Emissions",
       icon: <Recycling />,
     },
     {
-      src: "/src/assets/images/nature-image.jpg",
+      src: NatureImage,
       alt: "Global Impact",
       label: "Creates Global Environmental Impact",
       icon: <Public />,
