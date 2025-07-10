@@ -173,7 +173,7 @@ const StickyImageGallery = () => {
         </div>
       </div>
 
-      {/* Progress Indicator */}
+      {/* Progress Indicator
       <div className="progress-indicator">
         {images.map((_, index) => (
           <div
@@ -198,7 +198,7 @@ const StickyImageGallery = () => {
             }}
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
