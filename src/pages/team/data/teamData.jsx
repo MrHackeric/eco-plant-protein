@@ -1,4 +1,4 @@
-import Founder1 from "../../assets/images/founder-image.jpg";
+import Founder1 from "../../../assets/images/founder-image.jpg";
 
 export const foundersData = [
   {
