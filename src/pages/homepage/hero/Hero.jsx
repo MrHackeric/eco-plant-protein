@@ -1,86 +1,52 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "./Hero.css";
-import ForestIcon from "@mui/icons-material/Forest";
-import ScienceIcon from "@mui/icons-material/Science";
-import SpaIcon from '@mui/icons-material/Spa';
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import "./Hero.css";
+
+// Image imports
+import bgImage from "../../../assets/images/hero-bg.jpg";
+import img1 from "../../../assets/images/hero-bg.jpg";
+import img2 from "../../../assets/images/hero-bg.jpg";
+import img3 from "../../../assets/images/hero-bg.jpg";
 
 const Hero = () => {
   return (
-    <div className="hero-container">
-      {/* Hero Section with Background Image */}
-      <div className="hero-background">
-        <div className="hero-content">
-          <motion.div 
-            className="hero-text-container"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h1 className="hero-title">
-              We recycle CO<sub>2</sub> for sustainable protein production
-            </h1>
-            <motion.button 
-              className="hero-button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Request a Sample <ArrowForwardIcon className="arrow-icon" />
-            </motion.button>
-          </motion.div>
-        </div>
-      </div>
+    <div className="hero-container" style={{ backgroundImage: `url(${bgImage})` }}>
+      <div className="overlay"></div>
+      <div className="hero-content-wrapper">
+        {/* Left Text Section */}
+        <motion.div
+          className="hero-text"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <span className="hero-badge">ECO PLANT PROTEIN</span>
+          <h1 className="hero-heading">We recycle CO2 for sustainable protein production</h1>
+          <p className="hero-description">
+            As Green2Grow we are dedicated to empowering communities through sustainable greenhouse farming. 
+            We provide innovative agricultural solutions to help individuals grow food, improve livelihoods, 
+            and promote environmental sustainability.
+          </p>
+          <div className="hero-buttons">
+            <button className="btn join">
+              JOIN US <ArrowForwardIcon />
+            </button>
+            <button className="btn partner">PARTNER WITH US</button>
+          </div>
+        </motion.div>
 
-      {/* Cards Section */}
-      <div className="feature-cards">
-        {[
-          {
-            icon: <ForestIcon className="card-icon" />,
-            title: "We offer sustainably produced proteins...",
-            description: "We offer sustainably produced proteins that are processed into specific end products through various downstream processes.",
-            buttonText: "Our Products"
-          },
-          {
-            icon: <ScienceIcon className="card-icon" />,
-            title: "Our high-tech bio-process...",
-            description: "Our high tech bio-process uses carbon dioxide as a source to produce high quality proteins to secure the world's protein demand.",
-            buttonText: "Our Process"
-          },
-          {
-            icon: <SpaIcon className="card-icon" />,
-            title: "Our impact on sustainability...",
-            description: "Our bio-process is paving the way for a more sustainable future in protein production and making a positive impact on the environment.",
-            buttonText: "Our Impact"
-          }
-        ].map((card, index) => (
-          <motion.div 
-            key={index}
-            className="feature-card"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.15, duration: 0.6 }}
-            whileHover={{ y: -10 }}
-          >
-            <motion.div 
-              className="icon-container"
-              animate={{ 
-                rotate: [0, 5, -5, 0],
-                transition: { duration: 1.5, repeat: Infinity, repeatType: "reverse" }
-              }}
-            >
-              {card.icon}
-            </motion.div>
-            <h3>{card.title}</h3>
-            <p>{card.description}</p>
-            <motion.button 
-              className="card-button"
-              whileHover={{ backgroundColor: "#04713d", color: "#fff" }}
-            >
-              {card.buttonText} <ArrowForwardIcon className="arrow-icon" />
-            </motion.button>
-          </motion.div>
-        ))}
+        {/* Right Images Section */}
+        <motion.div
+          className="hero-images"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1.2 }}
+        >
+          <motion.img src={img1} alt="farm 1" className="hero-img top" whileHover={{ scale: 1.02 }} />
+          <motion.img src={img2} alt="farm 2" className="hero-img middle" whileHover={{ scale: 1.02 }} />
+          <motion.img src={img3} alt="farm 3" className="hero-img bottom" whileHover={{ scale: 1.02 }} />
+        </motion.div>
       </div>
     </div>
   );

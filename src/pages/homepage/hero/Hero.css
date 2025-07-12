@@ -10,196 +10,174 @@
   --font-main: 'Red Hat Display', sans-serif;
 }
 
-.hero-container {
-  font-family: var(--font-main);
-  max-width: 100%;
-  margin: 0 auto;
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700;800&display=swap');
+
+:root {
+  --primary-green: #04713d;
+  --white: #ffffff;
+  --dark: #1a1a1a;
+  --overlay-dark: rgba(0, 0, 0, 0.55);
 }
 
-/* Hero Background Section */
-.hero-background {
-  background-image: url('../../../assets//images/hero-bg.jpg'); /* Common in React */
+.hero-container {
+  position: relative;
   background-size: cover;
   background-position: center;
-  height: 70vh;
-  min-height: 600px;
+  height: 100vh;
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  font-family: 'Red Hat Display', sans-serif;
+  overflow: hidden;
 }
 
-.hero-background::before {
-  content: '';
+.overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+  inset: 0;
+  background-color: var(--overlay-dark);
+  z-index: 1;
 }
 
-.hero-content {
+.hero-content-wrapper {
   position: relative;
   z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
-  max-width: 1200px;
-  padding: 0 2rem;
+  max-width: 1440px;
+  padding: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.hero-text-container {
-  background: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
-  backdrop-filter: blur(8px);
-  padding: 3rem;
+/* LEFT SIDE */
+.hero-text {
+  flex: 1 1 55%;
+  max-width: 700px;
+}
+
+.hero-badge {
+  background-color: #7bbf2d;
+  color: #fff;
+  padding: 0.4rem 1rem;
   border-radius: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hero-title {
-  color: var(--white);
-  font-size: 2.8rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 2rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero-button {
-  background-color: var(--primary-green);
-  color: var(--white);
-  border: none;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
   font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.hero-heading {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
   font-size: 1.1rem;
-  cursor: pointer;
-  display: inline-flex;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  display: flex;
   align-items: center;
-  gap: 0.8rem;
-  transition: var(--transition);
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.hero-button:hover {
-  background-color: #035b30;
+.btn.join {
+  background-color: var(--primary-green);
+  color: #fff;
 }
 
-.arrow-icon {
+.btn.join:hover {
+  background-color: #075f34;
+}
+
+.btn.partner {
+  background-color: #fff;
+  color: var(--primary-green);
+}
+
+.btn.partner:hover {
+  background-color: #f1f1f1;
+}
+
+/* RIGHT IMAGE SECTION */
+.hero-images {
+  flex: 1 1 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-img {
+  border-radius: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  object-fit: cover;
+  width: 260px;
+  height: 160px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
 }
 
-.hero-button:hover .arrow-icon {
-  transform: translateX(5px);
+.hero-img.top {
+  align-self: flex-end;
 }
 
-/* Feature Cards Section */
-.feature-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: -5rem auto 0;
-  padding: 0 2rem 4rem;
-  position: relative;
-  z-index: 3;
+.hero-img.middle {
+  align-self: center;
 }
 
-.feature-card {
-  background: var(--white);
-  border-radius: 20px;
-  padding: 2.5rem;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: var(--transition);
-  border: 1px solid rgba(4, 113, 61, 0.1);
+.hero-img.bottom {
+  align-self: flex-start;
 }
 
-.icon-container {
-  margin-bottom: 1.5rem;
-}
-
-.card-icon {
-  font-size: 3rem;
-  color: var(--light-green);
-}
-
-.feature-card h3 {
-  color: var(--primary-green);
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-
-.feature-card p {
-  color: var(--gray);
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-.card-button {
-  background: var(--light-green);
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  color: var(--primary-green);
-  font-weight: 500;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: var(--transition);
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-  .hero-title {
-    font-size: 2.4rem;
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-  
-  .hero-background {
-    height: 60vh;
-    min-height: 500px;
-  }
-}
 
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
+  .hero-text {
+    align-items: center;
+    text-align: center;
   }
-  
-  .hero-text-container {
-    padding: 2rem;
-  }
-  
-  .feature-cards {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-    margin-top: -3rem;
-  }
-  
-  .hero-background {
-    height: 70vh;
-    min-height: 400px;
-  }
-}
 
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.8rem;
+  .hero-heading {
+    font-size: 2.2rem;
   }
-  
-  .hero-text-container {
-    padding: 1.5rem;
+
+  .hero-images {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
   }
-  
-  .hero-button {
-    padding: 0.8rem 1.8rem;
-    font-size: 1rem;
-  }
-  
-  .feature-card {
-    padding: 1.5rem;
+
+  .hero-img {
+    width: 120px;
+    height: 100px;
   }
 }
