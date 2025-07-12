@@ -14,48 +14,37 @@ const ImpactContent = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (
-        !impactRef.current ||
-        !statementRef.current ||
-        !descriptionRef.current
-      )
-        return;
+      const elements = [statementRef.current, descriptionRef.current];
+      elements.forEach((element) => {
+        if (!element) return;
 
-      const impactRect = impactRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+        const rect = element.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-      // Calculate scroll progress within the impact section
-      const sectionHeight = impactRef.current.offsetHeight;
-      const scrollProgress = Math.max(
-        0,
-        Math.min(1, -impactRect.top / (sectionHeight * 0.5))
+        // Calculate when element is in view
+        const isInView =
+          rect.top <= windowHeight * 0.75 && rect.bottom >= windowHeight * 0.25;
+
+        if (isInView) {
+          element.style.opacity = "1";
+          element.style.transform = "translateY(0) scale(1)";
+        }
+      });
+
+      // Handle image containers animation
+      const imageContainers = document.querySelectorAll(
+        ".impact-image-container"
       );
+      imageContainers.forEach((container, index) => {
+        const rect = container.getBoundingClientRect();
+        const isInView = rect.top <= window.innerHeight * 0.85;
 
-      // Statement animation - fade out more gradually
-      const statementOpacity = Math.max(0, 1 - scrollProgress * 1.5);
-      const statementTransform = scrollProgress * 50;
-
-      // Description animation - fade in more clearly with better timing
-      const descriptionProgress = Math.max(
-        0,
-        Math.min(1, (scrollProgress - 0.2) * 1.8)
-      );
-      const descriptionOpacity = descriptionProgress;
-      const descriptionTransform = Math.max(0, 40 - descriptionProgress * 40);
-
-      // Apply animations with smoother transitions
-      if (statementRef.current) {
-        statementRef.current.style.opacity = statementOpacity;
-        statementRef.current.style.transform = `translateY(-${statementTransform}px)`;
-      }
-
-      if (descriptionRef.current) {
-        descriptionRef.current.style.opacity = descriptionOpacity;
-        descriptionRef.current.style.transform = `translateY(${descriptionTransform}px)`;
-        // Add scale effect for better visibility
-        const scale = 0.95 + descriptionProgress * 0.05;
-        descriptionRef.current.style.transform += ` scale(${scale})`;
-      }
+        if (isInView) {
+          container.style.animationDelay = `${index * 0.1}s`;
+          container.style.opacity = "1";
+          container.style.transform = "translateY(0)";
+        }
+      });
     };
 
     // Use requestAnimationFrame for smooth animations
@@ -79,17 +68,17 @@ const ImpactContent = () => {
   }, []);
 
   return (
-    <div className="impact-content" ref={impactRef}>
+    <div className="impact-content9" ref={impactRef}>
       {/* Impact Statement - Shows First */}
-      <h2 className="impact-statement" ref={statementRef}>
+      <h2 className="impact-statement9" ref={statementRef}>
         Our impact goes beyond
         <br />
         sustainable protein production.
       </h2>
 
       {/* Description Section - Shows as Statement Fades */}
-      <div className="impact-description-container" ref={descriptionRef}>
-        <p className="impact-description">
+      <div className="impact-description-container9" ref={descriptionRef}>
+        <p className="impact-description9">
           By utilizing CO2 and green hydrogen to create high-quality proteins,
           we're helping to reduce{" "}
           <span className="highlight">greenhouse gas emissions</span>,{" "}
@@ -99,49 +88,91 @@ const ImpactContent = () => {
         </p>
       </div>
 
-      {/* Cascading Video Section */}
-      <div className="impact-videos-cascade">
-        <div className="video-container video-1">
-          <img
-            src={FoodPlate}
-            alt="Sustainable Agriculture"
-            className="video-thumbnail"
-          />
-          <div className="video-overlay">
-            <h3>Sustainable Agriculture</h3>
+      {/* Auto-scrolling Image Carousel */}
+      <div className="impact-image-carousel">
+        <div className="carousel-track">
+          {/* First set of images */}
+          <div className="impact-image-container">
+            <img
+              src={FoodPlate}
+              alt="Sustainable Agriculture"
+              className="impact-image"
+            />
+            <div className="image-overlay">
+              <h3>Sustainable Agriculture</h3>
+              <p>Reducing land usage and preserving ecosystems</p>
+            </div>
           </div>
-        </div>
-
-        <div className="video-container video-2">
-          <img
-            src={BioProcess}
-            alt="Ocean Conservation"
-            className="video-thumbnail"
-          />
-          <div className="video-overlay">
-            <h3>Ocean Conservation</h3>
+          <div className="impact-image-container">
+            <img
+              src={BioProcess}
+              alt="Ocean Conservation"
+              className="impact-image"
+            />
+            <div className="image-overlay">
+              <h3>Ocean Conservation</h3>
+              <p>Protecting marine life and reducing ocean pollution</p>
+            </div>
           </div>
-        </div>
-
-        <div className="video-container video-3">
-          <img
-            src={NatureImage}
-            alt="Renewable Energy"
-            className="video-thumbnail"
-          />
-          <div className="video-overlay">
-            <h3>Renewable Energy</h3>
+          <div className="impact-image-container">
+            <img
+              src={NatureImage}
+              alt="Renewable Energy"
+              className="impact-image"
+            />
+            <div className="image-overlay">
+              <h3>Renewable Energy</h3>
+              <p>Using clean energy in our production process</p>
+            </div>
           </div>
-        </div>
+          <div className="impact-image-container">
+            <img src={HeroBg} alt="Carbon Reduction" className="impact-image" />
+            <div className="image-overlay">
+              <h3>Carbon Reduction</h3>
+              <p>Converting CO2 into valuable protein</p>
+            </div>
+          </div>
 
-        <div className="video-container video-4">
-          <img
-            src={HeroBg}
-            alt="Carbon Reduction"
-            className="video-thumbnail"
-          />
-          <div className="video-overlay">
-            <h3>Carbon Reduction</h3>
+          {/* Duplicate set for continuous scrolling */}
+          <div className="impact-image-container">
+            <img
+              src={FoodPlate}
+              alt="Sustainable Agriculture"
+              className="impact-image"
+            />
+            <div className="image-overlay">
+              <h3>Sustainable Agriculture</h3>
+              <p>Reducing land usage and preserving ecosystems</p>
+            </div>
+          </div>
+          <div className="impact-image-container">
+            <img
+              src={BioProcess}
+              alt="Ocean Conservation"
+              className="impact-image"
+            />
+            <div className="image-overlay">
+              <h3>Ocean Conservation</h3>
+              <p>Protecting marine life and reducing ocean pollution</p>
+            </div>
+          </div>
+          <div className="impact-image-container">
+            <img
+              src={NatureImage}
+              alt="Renewable Energy"
+              className="impact-image"
+            />
+            <div className="image-overlay">
+              <h3>Renewable Energy</h3>
+              <p>Using clean energy in our production process</p>
+            </div>
+          </div>
+          <div className="impact-image-container">
+            <img src={HeroBg} alt="Carbon Reduction" className="impact-image" />
+            <div className="image-overlay">
+              <h3>Carbon Reduction</h3>
+              <p>Converting CO2 into valuable protein</p>
+            </div>
           </div>
         </div>
       </div>

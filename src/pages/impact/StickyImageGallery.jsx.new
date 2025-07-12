@@ -12,6 +12,11 @@ import NatureImage from "../../assets/images/nature-image.jpg";
 import "./StickyImageGallery.css";
 
 const StickyImageGallery = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [transitionProgress, setTransitionProgress] = useState(0);
+  const galleryRef = useRef(null);
+  const stickyRef = useRef(null);
+
   const images = [
     {
       src: NatureImage,
@@ -51,11 +56,6 @@ const StickyImageGallery = () => {
     },
   ];
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [transitionProgress, setTransitionProgress] = useState(0);
-  const galleryRef = useRef(null);
-  const stickyRef = useRef(null);
-
   useEffect(() => {
     const handleScroll = () => {
       if (!galleryRef.current || !stickyRef.current) return;
@@ -63,6 +63,7 @@ const StickyImageGallery = () => {
       const galleryRect = galleryRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
+      // Calculate scroll progress within the gallery
       const scrollProgress = Math.max(
         0,
         Math.min(
@@ -71,6 +72,7 @@ const StickyImageGallery = () => {
         )
       );
 
+      // Calculate current image and transition progress
       const totalProgress = scrollProgress * (images.length - 1);
       const imageIndex = Math.floor(totalProgress);
       const progress = totalProgress - imageIndex;
@@ -88,20 +90,27 @@ const StickyImageGallery = () => {
     window.addEventListener("scroll", optimizedScrollHandler, {
       passive: true,
     });
-    handleScroll();
+    handleScroll(); // Initial call
 
     return () => window.removeEventListener("scroll", optimizedScrollHandler);
   }, [images.length]);
 
   const getImageTransform = (index) => {
     if (index === currentImageIndex) {
-      return `translateY(${transitionProgress * -100}%)`;
+      // Current image slides up as next image comes in
+      const translateY = transitionProgress * -100;
+      return `translateY(${translateY}%)`;
     } else if (index === currentImageIndex + 1) {
-      return `translateY(${100 - transitionProgress * 100}%)`;
+      // Next image slides up from bottom
+      const translateY = 100 - transitionProgress * 100;
+      return `translateY(${translateY}%)`;
     } else if (index < currentImageIndex) {
+      // Previous images stay above
       return `translateY(-100%)`;
+    } else {
+      // Future images stay below
+      return `translateY(100%)`;
     }
-    return `translateY(100%)`;
   };
 
   const getImageOpacity = (index) => {
@@ -114,45 +123,30 @@ const StickyImageGallery = () => {
   };
 
   return (
-    <div className="sticky-gallery-container">
-      <div className="sticky-gallery" ref={galleryRef}>
-        <div className="sticky-wrapper" ref={stickyRef}>
-          <div className="images-list">
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className="individual-image-container"
-                style={{
-                  transform: getImageTransform(index),
-                  opacity: getImageOpacity(index),
-                  zIndex: images.length - Math.abs(index - currentImageIndex),
-                }}
-              >
-                <img
-                  src={image.src || "/placeholder.svg"}
-                  alt={image.alt}
-                  className="gallery-image"
-                />
-                <div
-                  className={`image-overlay1 ${
-                    index === currentImageIndex ||
-                    index === currentImageIndex + 1
-                      ? "visible"
-                      : ""
-                  }`}
-                  style={{
-                    opacity:
-                      index === currentImageIndex
-                        ? 1 - transitionProgress
-                        : transitionProgress,
-                  }}
-                >
-                  <span className="overlay-icon">{image.icon}</span>
-                  <span className="overlay-text">{image.label}</span>
-                </div>
+    <div className="sticky-gallery15" ref={galleryRef}>
+      <div className="sticky-wrapper15" ref={stickyRef}>
+        <div className="images-container15">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="image-wrapper15"
+              style={{
+                transform: getImageTransform(index),
+                opacity: getImageOpacity(index),
+                zIndex: images.length - Math.abs(index - currentImageIndex),
+              }}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="gallery-image15"
+              />
+              <div className="image-overlay15">
+                <div className="icon-container15">{image.icon}</div>
+                <h3 className="image-label15">{image.label}</h3>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
