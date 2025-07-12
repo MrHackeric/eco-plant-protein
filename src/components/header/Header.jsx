@@ -11,12 +11,16 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = 'auto';
+    };
   }, []);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    document.body.style.overflow = isMenuOpen ? 'auto' : 'hidden';
+    const newMenuState = !isMenuOpen;
+    setIsMenuOpen(newMenuState);
+    document.body.style.overflow = newMenuState ? 'hidden' : 'auto';
   };
 
   const navItems = [
@@ -45,7 +49,10 @@ const Header = () => {
                 <Link
                   to={item.path}
                   className={`nav-link ${item.isCta ? 'cta-button1' : ''}`}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    document.body.style.overflow = 'auto';
+                  }}
                 >
                   {item.name}
                   {item.isCta && <ArrowForward className="arrow-icon" />}
