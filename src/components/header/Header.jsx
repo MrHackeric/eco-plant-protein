@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Logo from '../../assets/images/logo.svg?react';
-import { Menu, Close, ArrowForward } from '@mui/icons-material';
-import './Header.css';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Logo from "../../assets/images/logo.svg?react";
+import { Menu, Close, ArrowForward } from "@mui/icons-material";
+import "./Header.css";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,30 +10,30 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.body.style.overflow = 'auto';
+      window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = "auto";
     };
   }, []);
 
   const toggleMenu = () => {
     const newMenuState = !isMenuOpen;
     setIsMenuOpen(newMenuState);
-    document.body.style.overflow = newMenuState ? 'hidden' : 'auto';
+    document.body.style.overflow = newMenuState ? "hidden" : "auto";
   };
 
   const navItems = [
-    { name: 'Products', path: '/products' },
-    { name: 'Process', path: '/process' },
-    { name: 'Impact', path: '/impact' },
-    { name: 'Team', path: '/team' },
-    { name: 'News', path: '/news' },
-    { name: 'Contact Us', path: '/contact', isCta: true }
+    { name: "Products", path: "/products" },
+    { name: "Process", path: "/process" },
+    { name: "Impact", path: "/impact" },
+    { name: "Team", path: "/team" },
+    { name: "News", path: "/news" },
+    { name: "Contact Us", path: "/contact", isCta: true },
   ];
 
   return (
-    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="header-container">
         <div className="logo-container">
           <Link to="/" className="logo-link">
@@ -42,16 +42,16 @@ const Header = () => {
           </Link>
         </div>
 
-        <nav className={`nav ${isMenuOpen ? 'mobile-open' : ''}`}>
+        <nav className={`nav ${isMenuOpen ? "mobile-open" : ""}`}>
           <ul>
             {navItems.map((item, index) => (
               <li key={item.name} className={`nav-item-${index}`}>
                 <Link
                   to={item.path}
-                  className={`nav-link ${item.isCta ? 'cta-button1' : ''}`}
+                  className={`nav-link ${item.isCta ? "cta-button1" : ""}`}
                   onClick={() => {
                     setIsMenuOpen(false);
-                    document.body.style.overflow = 'auto';
+                    document.body.style.overflow = "auto";
                   }}
                 >
                   {item.name}
@@ -63,11 +63,11 @@ const Header = () => {
           </ul>
         </nav>
 
-        <button 
-          className="menu-toggle" 
+        <button
+          className="menu-toggle"
           onClick={toggleMenu}
           aria-expanded={isMenuOpen}
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMenuOpen ? (
             <Close className="menu-icon" />
