@@ -1,218 +1,85 @@
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap");
-
-.sticky-gallery-container {
-  position: relative;
-  width: 100%;
-  padding: 60px 0;
-}
-
-.sticky-gallery {
-  position: relative;
-  height: 500vh; /* Increased for smoother scrolling transitions */
-}
-
-.sticky-wrapper {
-  position: sticky;
-  top: 80px;
-  height: 75vh; /* 3/4 of viewport height */
-  width: 75vw; /* 3/4 of viewport width */
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 30px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+.impact-timeline-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 0; /* Remove side padding */
+  background: #f9f9f9;
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden; /* Animation Enhancement */
 }
 
-.images-list {
-  position: relative;
+.impact-card {
   width: 100%;
-  height: 100%;
-}
-
-.individual-image-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0; /* No border-radius if full width is desired */
   overflow: hidden;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    opacity 0.6s ease;
-  will-change: transform, opacity;
-}
-
-.gallery-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 30px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  background: white;
   transition: transform 0.3s ease;
+  will-change: opacity, transform; /* Animation Enhancement */
+  opacity: 0; /* Animation Enhancement */
+  transform: translateY(20px); /* Animation Enhancement */
+  transition: 
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s ease; /* Preserve original hover transition */
 }
 
-.individual-image-container:hover .gallery-image {
-  transform: scale(1.02);
+.impact-card.active {
+  opacity: 1; /* Animation Enhancement */
+  transform: translateY(0); /* Animation Enhancement */
 }
 
-.image-overlay1 {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  right: 40px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 20px 30px;
-  border-radius: 20px;
+.impact-card:hover {
+  transform: translateY(-8px) !important;
+}
+
+.impact-image {
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.impact-info {
   display: flex;
   align-items: center;
-  gap: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  gap: 1rem;
+  padding: 2rem 4vw; /* Add internal padding for spacing */
 }
 
-.image-overlay1.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.overlay-icon {
+.impact-icon {
+  font-size: 2rem;
   color: #2e7d32;
-  font-size: 24px;
-  flex-shrink: 0;
+  background: #e0f2f1;
+  padding: 10px;
+  border-radius: 50%;
 }
 
-.overlay-text {
-  font-family: "Red Hat Display", sans-serif;
+.impact-text {
+  font-size: 1.5rem;
   font-weight: 600;
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.3;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .sticky-gallery {
-    height: 400vh;
-  }
-
-  .sticky-wrapper {
-    width: 85vw;
-    height: 70vh;
-    border-radius: 24px;
-  }
-
-  .image-overlay1 {
-    bottom: 30px;
-    left: 30px;
-    right: 30px;
-    padding: 15px 20px;
-    border-radius: 16px;
-  }
-
-  .overlay-text {
-    font-size: 1rem;
-  }
+  color: #2e2e2e;
 }
 
 @media (max-width: 768px) {
-  .sticky-gallery {
-    height: 350vh;
+  .impact-image {
+    height: 300px;
   }
 
-  .sticky-wrapper {
-    width: 90vw;
-    height: 65vh;
-    border-radius: 20px;
-    top: 60px;
+  .impact-text {
+    font-size: 1.2rem;
   }
 
-  .image-overlay1 {
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    padding: 12px 15px;
-    gap: 10px;
+  .impact-info {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
   }
 
-  .overlay-icon {
-    font-size: 20px;
+  .impact-card {
+    transform: translateY(10px); /* Animation Enhancement for mobile */
   }
-
-  .overlay-text {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .sticky-gallery {
-    height: 300vh;
-  }
-
-  .sticky-wrapper {
-    width: 95vw;
-    height: 55vh;
-    border-radius: 16px;
-    top: 50px;
-  }
-
-  .image-overlay1 {
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    padding: 10px 12px;
-    border-radius: 12px;
-  }
-
-  .overlay-icon {
-    font-size: 18px;
-  }
-
-  .overlay-text {
-    font-size: 0.85rem;
-  }
-}
-
-/* Performance optimizations */
-@media (prefers-reduced-motion: reduce) {
-  .individual-image-container,
-  .gallery-image,
-  .image-overlay1 {
-    transition: none;
-  }
-}
-
-/* Smooth scrolling for supported browsers */
-@supports (scroll-behavior: smooth) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* Fallback for no JavaScript */
-.no-js .sticky-gallery {
-  height: auto;
-}
-
-.no-js .sticky-wrapper {
-  position: relative;
-  height: auto;
-}
-
-.no-js .individual-image-container {
-  position: relative;
-  margin-bottom: 2rem;
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-.no-js .image-overlay1 {
-  opacity: 1 !important;
-  transform: none !important;
 }

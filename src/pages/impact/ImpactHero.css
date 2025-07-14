@@ -70,10 +70,9 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: none; /* Removed border and background */
+  background: none;
 }
 
 .eco-hero-title {
@@ -154,16 +153,15 @@ body {
 }
 
 .eco-stat-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: none; /* Removed blur and color overlays */
   padding: 2rem;
   border-radius: 16px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease;
+  border: none;
+  box-shadow: none;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s ease;
 }
 
 .eco-stat-card::before {
@@ -173,11 +171,6 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    135deg,
-    var(--primary-green),
-    var(--accent-green)
-  );
   opacity: 0.1;
   transition: opacity 0.4s ease;
 }
