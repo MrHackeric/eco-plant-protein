@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap");
+
+.donation-container {
+  max-width: 1200px;
+  margin: 4rem auto 0;
+  padding: 2rem;
+  font-family: "Red Hat Display", sans-serif;
+  color: #2e2e2e;
+}
+
+.donation-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background-color: #e0f2f1;
+  border-radius: 12px;
+}
+
+.header-icon {
+  font-size: 3rem !important;
+  color: #2e7d32;
+}
+
+.donation-content {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.donation-motivation {
+  flex: 1;
+  min-width: 300px;
+}
+
+.impact-point {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.donation-box {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.donation-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.amount-option {
+  background: #f5f5f5;
+  border: 2px solid #e0f2f1;
+  color: #2e7d32;
+  padding: 0.75rem 0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.amount-option.active {
+  background: #2e7d32;
+  color: white;
+  border-color: #2e7d32;
+}
+
+.custom-amount {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0f2f1;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin: 1rem 0;
+  transition: border 0.3s ease;
+}
+
+/* PayPal Container */
+.paypal-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Confirmation Message */
+.confirmation-message {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.confirmation-message h3 {
+  color: #2e7d32;
+  margin: 1rem 0 0.5rem;
+}
+
+.donate-again-btn {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.donate-again-btn:hover {
+  background: #1b5e20;
+}
+
+/* Loading State */
+.paypal-spinner {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.donation-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #2e7d32;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .donation-container {
+    padding: 1rem;
+  }
+
+  .donation-toast {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+}

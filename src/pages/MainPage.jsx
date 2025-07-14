@@ -9,7 +9,7 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ProductPage from "./product/ProductPage";
 import ProcessPage from "./process/ProcessPage";
-
+import DonationPage from "./donation/DonationPage";
 function MainPage() {
   return (
     <>
@@ -22,6 +22,7 @@ function MainPage() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/process" element={<ProcessPage />} />
+        <Route path="/donate" element={<DonationPage />} />
       </Routes>
       <Footer />
     </>
