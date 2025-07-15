@@ -10,27 +10,24 @@ const SolutionSection = () => {
         <div className="solution-content">
           <p className="solution-subtitle">OUR SOLUTION</p>
           <h2 className="solution-title">
-            Our innovative bio-process is the sustainable solution to the
-            increasing demand for alternative proteins.
+            Revolutionizing Nutrition with AI & Agro-Waste
           </h2>
           {/* <ContactButton href="#process">Explore our Process</ContactButton> */}
         </div>
 
         <div className="solution-text">
           <p>
-            With the potential for significant economic and environmental
-            impact, our process utilizes CO₂ and green Hydrogen to efficiently
-            produce high-quality proteins that can be processed for various
-            applications, including animal feed, human food, and cosmetic or
-            technical proteins.
+            We’ve developed a digital waste-upcycling system that transforms
+            corn cobs—often discarded—into high-quality single-cell protein
+            using AI-optimized solid-state fermentation. Our solution mimics
+            meat in taste and texture, yet it's:
           </p>
-          <p>
-            By focusing on animal feed proteins, we can quickly achieve our
-            sustainability goals while providing an economically viable
-            alternative for producers of feed and food protein products. Plus,
-            our process allows industrial plants to reduce their CO₂ emissions
-            while utilizing carbon as a valuable resource for production.
-          </p>
+          <ul>
+            <li>100% plant-based</li>
+            <li>Easily digestible</li>
+            <li>Nutrient-dense</li>
+            <li>Cost-effective & sustainable</li>
+          </ul>
         </div>
       </div>
     </div>

@@ -50,7 +50,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.impact-description9 .highlight {
+.impact-description9 .highlight50 {
   color: #2e7d32;
   font-weight: 600;
   position: relative;
@@ -59,7 +59,7 @@
   border-radius: 4px;
 }
 
-.impact-description9 .highlight::after {
+.impact-description9 .highlight50::after {
   content: "";
   position: absolute;
   bottom: 0px;

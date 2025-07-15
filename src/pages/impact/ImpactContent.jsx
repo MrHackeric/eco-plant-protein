@@ -55,12 +55,11 @@ const ImpactContent = () => {
 
       <div className="impact-description-container9" ref={descriptionRef}>
         <p className="impact-description9">
-          By utilizing CO2 and green hydrogen to create high-quality proteins,
-          we're helping to reduce{" "}
-          <span className="highlight">greenhouse gas emissions</span>,{" "}
-          <span className="highlight">decrease land usage</span> for
-          agriculture, and{" "}
-          <span className="highlight">conserve natural resources</span>.
+          Eco-Plant Protein is a digital food-tech startup that upcycles
+          agro-waste using AI-guided fermentation to produce{" "}
+          <span className="highlight50">meat-like protein </span>, that's{" "}
+          <span className="highlight">nutrient-rich,</span>
+          low-cost, and <span className="highlight">climate-smart</span>.
         </p>
       </div>
     </div>
