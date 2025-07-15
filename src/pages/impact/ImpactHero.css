@@ -67,6 +67,7 @@ body {
 
 .eco-hero-text {
   text-align: center;
+  font-weight: bolder;
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
