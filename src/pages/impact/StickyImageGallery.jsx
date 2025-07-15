@@ -1,7 +1,6 @@
-"use client";
-import { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import {
-  Check,
   Water,
   EnergySavingsLeaf,
   Agriculture,
@@ -9,152 +8,104 @@ import {
   Public,
 } from "@mui/icons-material";
 import NatureImage from "../../assets/images/nature-image.jpg";
+import FoodPlate from "../../assets/images/food-plate.jpg";
+import BioProcess from "../../assets/images/bio-process.jpg";
+import HeroBg from "../../assets/images/hero-bg.jpg";
 import "./StickyImageGallery.css";
 
-const StickyImageGallery = () => {
-  const images = [
-    {
-      src: NatureImage,
-      alt: "Reduces Overfishing",
-      label: "Reduces Overfishing",
-      icon: <Check />,
-    },
-    {
-      src: NatureImage,
-      alt: "Sustainable Energy",
-      label: "Uses Renewable Energy",
-      icon: <EnergySavingsLeaf />,
-    },
-    {
-      src: NatureImage,
-      alt: "Water Conservation",
-      label: "Conserves Water Resources",
-      icon: <Water />,
-    },
-    {
-      src: NatureImage,
-      alt: "Reduces Land Use",
-      label: "Minimizes Agricultural Land Use",
-      icon: <Agriculture />,
-    },
-    {
-      src: NatureImage,
-      alt: "Carbon Recycling",
-      label: "Recycles CO2 Emissions",
-      icon: <Recycling />,
-    },
-    {
-      src: NatureImage,
-      alt: "Global Impact",
-      label: "Creates Global Environmental Impact",
-      icon: <Public />,
-    },
-  ];
+const impacts = [
+  {
+    icon: <Water />,
+    label: "Conserves Water Resources",
+    image: BioProcess,
+  },
+  {
+    icon: <EnergySavingsLeaf />,
+    label: "Uses Renewable Energy",
+    image: FoodPlate,
+  },
+  {
+    icon: <Agriculture />,
+    label: "Minimizes Agricultural Land Use",
+    image: HeroBg,
+  },
+  {
+    icon: <Recycling />,
+    label: "Recycles CO₂ Emissions",
+    image: BioProcess,
+  },
+  {
+    icon: <Public />,
+    label: "Global Environmental Impact",
+    image: FoodPlate,
+  },
+  {
+    icon: <Water />,
+    label: "Reduces Overfishing",
+    image: NatureImage,
+  },
+];
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [transitionProgress, setTransitionProgress] = useState(0);
-  const galleryRef = useRef(null);
-  const stickyRef = useRef(null);
+const StickyImageGallery = () => {
+  const cardsRef = useRef([]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!galleryRef.current || !stickyRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          } else {
+            // Optional: Remove this if you don't want fade-out on exit
+            entry.target.classList.remove("active");
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "0px 0px -100px 0px",
+      }
+    );
 
-      const galleryRect = galleryRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      const scrollProgress = Math.max(
-        0,
-        Math.min(
-          1,
-          -galleryRect.top / (galleryRect.height - windowHeight * 0.7)
-        )
-      );
-
-      const totalProgress = scrollProgress * (images.length - 1);
-      const imageIndex = Math.floor(totalProgress);
-      const progress = totalProgress - imageIndex;
-
-      const clampedIndex = Math.max(0, Math.min(images.length - 1, imageIndex));
-
-      setCurrentImageIndex(clampedIndex);
-      setTransitionProgress(progress);
-    };
-
-    const optimizedScrollHandler = () => {
-      requestAnimationFrame(handleScroll);
-    };
-
-    window.addEventListener("scroll", optimizedScrollHandler, {
-      passive: true,
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card);
     });
-    handleScroll();
 
-    return () => window.removeEventListener("scroll", optimizedScrollHandler);
-  }, [images.length]);
-
-  const getImageTransform = (index) => {
-    if (index === currentImageIndex) {
-      return `translateY(${transitionProgress * -100}%)`;
-    } else if (index === currentImageIndex + 1) {
-      return `translateY(${100 - transitionProgress * 100}%)`;
-    } else if (index < currentImageIndex) {
-      return `translateY(-100%)`;
-    }
-    return `translateY(100%)`;
-  };
-
-  const getImageOpacity = (index) => {
-    if (index === currentImageIndex) {
-      return 1 - transitionProgress * 0.3;
-    } else if (index === currentImageIndex + 1) {
-      return 0.7 + transitionProgress * 0.3;
-    }
-    return 0;
-  };
+    return () => {
+      cardsRef.current.forEach((card) => {
+        if (card) observer.unobserve(card);
+      });
+    };
+  }, []);
 
   return (
-    <div className="sticky-gallery-container">
-      <div className="sticky-gallery" ref={galleryRef}>
-        <div className="sticky-wrapper" ref={stickyRef}>
-          <div className="images-list">
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className="individual-image-container"
-                style={{
-                  transform: getImageTransform(index),
-                  opacity: getImageOpacity(index),
-                  zIndex: images.length - Math.abs(index - currentImageIndex),
-                }}
-              >
-                <img
-                  src={image.src || "/placeholder.svg"}
-                  alt={image.alt}
-                  className="gallery-image"
-                />
-                <div
-                  className={`image-overlay1 ${
-                    index === currentImageIndex ||
-                    index === currentImageIndex + 1
-                      ? "visible"
-                      : ""
-                  }`}
-                  style={{
-                    opacity:
-                      index === currentImageIndex
-                        ? 1 - transitionProgress
-                        : transitionProgress,
-                  }}
-                >
-                  <span className="overlay-icon">{image.icon}</span>
-                  <span className="overlay-text">{image.label}</span>
-                </div>
-              </div>
-            ))}
+    <div className="impact-timeline-wrapper">
+      {impacts.map((impact, index) => (
+        <motion.div
+          key={index}
+          className="impact-card"
+          ref={(el) => (cardsRef.current[index] = el)}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+            delay: index * 0.1,
+          }}
+        >
+          <img
+            src={impact.image}
+            alt={impact.label}
+            className="impact-image"
+            loading="lazy"
+          />
+          <div className="impact-info">
+            <div className="impact-icon">{impact.icon}</div>
+            <h3 className="impact-text">{impact.label}</h3>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      ))}
     </div>
   );
 };
