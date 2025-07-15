@@ -7,10 +7,11 @@ import {
   WindPowerOutlined,
   Work,
 } from "@mui/icons-material";
-import NatureImage from "../../assets/images/nature-image.jpg";
 import NutritionalOutcome from "../../assets/images/impact/nutritional_outcome.jpeg";
 import LivelihoodCreation from "../../assets/images/impact/livelihood_creation.JPG";
 import AgriculturalWaste from "../../assets/images/impact/agricultural_waste.JPG";
+import Recognition from "../../assets/images/impact/recognition.jpeg";
+import ClimateAction from "../../assets/images/impact/climate_action.jpeg";
 import "./StickyImageGallery.css";
 
 const impacts = [
@@ -38,14 +39,14 @@ const impacts = [
   {
     icon: <WindPowerOutlined />,
     label: "Climate Action",
-    image: NatureImage,
+    image: ClimateAction,
     description:
       "Reduced carbon emissions by replacing livestock-based protein •	Lowered methane and water usage with plant-based fermentation •	Aligned with Kenya’s NDC goals on food and waste",
   },
   {
     icon: <MailLockOutlined />,
     label: " Recognition",
-    image: NatureImage,
+    image: Recognition,
     description:
       "Finalist in top innovation platforms (FAO, African Union, etc.) •	Strategic partnerships with research institutions and grassroots networks",
   },
