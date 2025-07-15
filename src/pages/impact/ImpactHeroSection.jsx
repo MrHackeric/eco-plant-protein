@@ -9,25 +9,27 @@ import AfricaImage from "../../assets/images/african-mosaic-child.png";
 const ImpactHero = () => {
   const ecoStats = [
     {
-      value: 80,
-      suffix: "%",
-      description: "CO₂ emission reduction in our production process",
+      value: 10,
+      suffix: " tons",
+      description:
+        "• Over 10 tons of corn cobs recycled from landfills\
+                    • Creating a zero-waste circular model that supports regenerative agriculture",
     },
     {
-      value: 50,
-      suffix: "%",
-      description: "Water conservation compared to traditional methods",
+      value: 30000,
+      suffix: "+",
+      description:
+        "•	Over 30000 protein rich meals distributed to vulnerable children and families\
+•	Combating protein malnutrition in arid and semi-arid Kenyan regions\
+•	Proven 40% increase in child nutritional markers in early pilots",
     },
+
     {
-      value: 1.7,
-      suffix: "B+",
-      rawValue: 1_700_000_000,
-      description: "Tons of sustainable protein produced yearly",
-    },
-    {
-      value: 30,
-      suffix: "%",
-      description: "Reduction in agricultural land use impact",
+      value: 200,
+      suffix: "+",
+      description:
+        "•	Trained 200+ youth and women in green jobs: fermentation, waste aggregation, and product distribution\
+•	Established community micro-hubs for decentralized production",
     },
   ];
 
@@ -44,6 +46,48 @@ const ImpactHero = () => {
     } else {
       return `${Math.floor(val)}${suffix}`;
     }
+  };
+
+  // Function to render description with bullet points or plain text
+  const renderDescription = (description) => {
+    if (!description) {
+      return <p className="eco-stat-label">No description available</p>;
+    }
+
+    // If description is an array (for future-proofing)
+    if (Array.isArray(description)) {
+      return (
+        <ul className="eco-stat-bullet-list">
+          {description.map((point, index) => (
+            <li key={index} className="eco-stat-label">
+              {point}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+    // Split string by common bullet point delimiters
+    const points = description
+      .split(/[\n•*]/) // Split by newline, •, *, or -
+      .map((point) => point.trim())
+      .filter((point) => point.length > 0);
+
+    // Render single-line description as <p>
+    if (points.length <= 1) {
+      return <p className="eco-stat-label">{description}</p>;
+    }
+
+    // Render multi-point description as <ul>
+    return (
+      <ul className="eco-stat-bullet-list">
+        {points.map((point, index) => (
+          <li key={index} className="eco-stat-label">
+            {point}
+          </li>
+        ))}
+      </ul>
+    );
   };
 
   return (
@@ -79,8 +123,7 @@ const ImpactHero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
               >
-                Revolutionizing sustainable protein production for a healthier
-                planet
+                From Waste to Wellness.
               </motion.p>
               <motion.button
                 className="eco-hero-button"
@@ -122,10 +165,11 @@ const ImpactHero = () => {
                     <CountUp
                       start={stat.rawValue ? stat.rawValue * 0.7 : 0}
                       end={stat.rawValue || stat.value}
-                      duration={stat.rawValue ? 5 : 3}
+                      duration={2}
                       formattingFn={(val) =>
                         formatLargeNumber(val, stat.suffix)
                       }
+                      decimals={stat.suffix === "%" ? 1 : 0}
                     />
                   ) : stat.suffix ? (
                     `0${stat.suffix}`
@@ -133,7 +177,7 @@ const ImpactHero = () => {
                     "0"
                   )}
                 </h3>
-                <p className="eco-stat-label">{stat.description}</p>
+                {renderDescription(stat.description)}
               </motion.div>
             ))}
           </motion.div>

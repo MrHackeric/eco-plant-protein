@@ -1,27 +1,27 @@
-import Founder1 from "../../../assets/images/founder-image.jpg";
-import AdvisorImage from "../../../assets/images/advisor-image.jpg";
-import TeamMemberImage from "../../../assets/images/team-member-image.jpg";
+import Founder1 from "../../../assets/images/team/Simali_Dickson.JPG";
+import AdvisorImage from "../../../assets/images/team/John_Nduko.JPG";
+import TeamMemberImage from "../../../assets/images/team/Linet_Mwangi.JPG";
 
 export const foundersData = [
   {
     id: 1,
-    name: "Verena Schwab",
+    name: "Dickson Simali",
     title: "Founder & CEO",
     image: Founder1,
     linkedinUrl: "https://linkedin.com/in/verena-schwab",
   },
   {
     id: 2,
-    name: "Dr. Stefan Zopf",
-    title: "Founder & CFO",
-    image: Founder1,
+    name: "Dr. John Nduko ",
+    title: "Chief Advisor",
+    image: AdvisorImage,
     linkedinUrl: "https://linkedin.com/in/stefan-zopf",
   },
   {
     id: 3,
-    name: "Dr. Christoph Reisinger",
-    title: "Founder & CTO",
-    image: Founder1,
+    name: "Linnet Mwangi ",
+    title: "Operations Manager",
+    image: TeamMemberImage,
     linkedinUrl: "https://linkedin.com/in/christoph-reisinger",
   },
 ];

@@ -2,34 +2,32 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  padding: 0; /* Remove side padding */
+  padding: 0;
   background: #f9f9f9;
   width: 100%;
   margin: 0;
-  overflow-x: hidden; /* Animation Enhancement */
+  overflow-x: hidden;
 }
 
 .impact-card {
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 0; /* No border-radius if full width is desired */
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   background: white;
   transition: transform 0.3s ease;
-  will-change: opacity, transform; /* Animation Enhancement */
-  opacity: 0; /* Animation Enhancement */
-  transform: translateY(20px); /* Animation Enhancement */
-  transition: 
-    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.3s ease; /* Preserve original hover transition */
+  will-change: opacity, transform;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
 }
 
 .impact-card.active {
-  opacity: 1; /* Animation Enhancement */
-  transform: translateY(0); /* Animation Enhancement */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .impact-card:hover {
@@ -45,9 +43,9 @@
 
 .impact-info {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
-  padding: 2rem 4vw; /* Add internal padding for spacing */
+  padding: 2rem 4vw;
 }
 
 .impact-icon {
@@ -56,30 +54,55 @@
   background: #e0f2f1;
   padding: 10px;
   border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.impact-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .impact-text {
   font-size: 1.5rem;
   font-weight: 600;
   color: #2e2e2e;
+  margin: 0;
 }
 
+.impact-description {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.impact-description li {
+  list-style-type: disc;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .impact-image {
     height: 300px;
-  }
-
-  .impact-text {
-    font-size: 1.2rem;
   }
 
   .impact-info {
     flex-direction: column;
     text-align: center;
     padding: 1.5rem;
+    align-items: center;
   }
 
-  .impact-card {
-    transform: translateY(10px); /* Animation Enhancement for mobile */
+  .impact-text {
+    font-size: 1.2rem;
+  }
+
+  .impact-description {
+    font-size: 0.95rem;
+    padding-left: 1rem;
+    text-align: left;
   }
 }

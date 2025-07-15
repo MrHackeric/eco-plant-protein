@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+
 import "./TeamHero.css";
 
 const TeamHeroSection = () => {
@@ -19,12 +19,12 @@ const TeamHeroSection = () => {
       }}
     >
       <div className="hero-product-background2">
-        <div className="hero-product-content">
+        <div className="hero-product-content20">
           <motion.div
             className="hero-product-text-container"
-            initial={{ opacity: 0, x: -80 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
           >
             <motion.h1
               className="hero-product-title"
@@ -36,14 +36,12 @@ const TeamHeroSection = () => {
             </motion.h1>
 
             <motion.h2
-              className="hero-product-subtitle"
-              initial={{ opacity: 0, x: 80 }}
-              animate={{ opacity: 1, x: 0 }}
+              className="hero-product-subtitle20"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              Our multidisciplinary team is dedicated to meet the challenges of
-              creating a process that can be both ecologically feasible as well
-              as economically valuable.
+              Driven by Purpose, Powered by Expertise.
             </motion.h2>
           </motion.div>
         </div>

@@ -195,13 +195,24 @@ body {
 
 .eco-stat-label {
   color: var(--white);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.4;
   position: relative;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
+.eco-stat-bullet-list {
+  list-style-type: disc; /* Bullet style: disc, circle, or square */
+  margin: 8px 0 0 0; /* Adjust margin to align with your design */
+  padding-left: 20px; /* Indent bullets */
+}
 
+.eco-stat-bullet-list li {
+  margin-bottom: 6px; /* Space between bullet points */
+  font-size: 14px; /* Match eco-stat-label font size or adjust */
+  line-height: 1.4; /* Improve readability */
+  color: white; /* Match eco-stat-label color */
+}
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .eco-hero-content {

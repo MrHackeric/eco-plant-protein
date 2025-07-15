@@ -28,7 +28,7 @@ const TeamPage = () => {
 
       {/* Founders Section */}
       <section className="team-section">
-        <h1 className="section-title">Our Founders</h1>
+        <h1 className="section-title">Meet Our Team</h1>
         <div className="founders-grid">
           {foundersData.map((founder) => (
             <FounderCard
@@ -43,7 +43,7 @@ const TeamPage = () => {
       </section>
 
       {/* Team Members Section */}
-      <section className="team-section">
+      {/* <section className="team-section">
         <h1 className="section-title">Our Team Members</h1>
         <div className="team-members-grid">
           {teamMembersData.map((member) => (
@@ -57,10 +57,10 @@ const TeamPage = () => {
             />
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Advisors Section */}
-      <section className="team-section">
+      {/* <section className="team-section">
         <h1 className="section-title">Our Advisors</h1>
         <div className="advisors-grid">
           {advisorsData.map((advisor) => (
@@ -72,7 +72,7 @@ const TeamPage = () => {
             />
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Call to Action Section */}
       <section className="team-section">
