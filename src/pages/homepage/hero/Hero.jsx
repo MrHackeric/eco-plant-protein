@@ -21,18 +21,19 @@ const Hero = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <span className="hero-badge">ECO PLANT PROTEIN</span>
-          <h1 className="hero-heading">We recycle CO2 for sustainable protein production</h1>
+          <span className="hero-badge">eco-plant-protein</span>
+          <h1 className="hero-heading">
+            Revolutionizing Nutrition with AI & Agro-Waste.
+          </h1>
           <p className="hero-description">
-            As Green2Grow we are dedicated to empowering communities through sustainable greenhouse farming. 
-            We provide innovative agricultural solutions to help individuals grow food, improve livelihoods, 
-            and promote environmental sustainability.
+            We turn discarded corn cobs into high-value, plant-based protein using AI-optimized fermentation—tackling hunger, waste, and climate change in one solution.
           </p>
           <div className="hero-buttons">
             <button className="btn join">
-              JOIN US <ArrowForwardIcon />
+              INVEST IN US <ArrowForwardIcon />
             </button>
-            <button className="btn partner">PARTNER WITH US</button>
+            <button className="btn partner">EXPLORE THE INNOVATION</button>
+            <button className="btn download">DOWNLOAD INVESTOR DECK</button>
           </div>
         </motion.div>
 
@@ -43,9 +44,9 @@ const Hero = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.2 }}
         >
-          <motion.img src={img1} alt="farm 1" className="hero-img top" whileHover={{ scale: 1.02 }} />
-          <motion.img src={img2} alt="farm 2" className="hero-img middle" whileHover={{ scale: 1.02 }} />
-          <motion.img src={img3} alt="farm 3" className="hero-img bottom" whileHover={{ scale: 1.02 }} />
+          <motion.img src={img1} alt="innovation 1" className="hero-img top" whileHover={{ scale: 1.02 }} />
+          <motion.img src={img2} alt="innovation 2" className="hero-img middle" whileHover={{ scale: 1.02 }} />
+          <motion.img src={img3} alt="innovation 3" className="hero-img bottom" whileHover={{ scale: 1.02 }} />
         </motion.div>
       </div>
     </div>

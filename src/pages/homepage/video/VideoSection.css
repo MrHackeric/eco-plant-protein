@@ -9,21 +9,17 @@
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   --font-main: 'Red Hat Display', sans-serif;
 }
-.products-video-section {
+.video-section {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   background: #000;
 }
 
 .video-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
 }
 
 .video-wrapper iframe {
@@ -37,19 +33,22 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
   z-index: 2;
 }
 
-.overlay-content {
-  position: relative;
+.video-heading {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 3;
   color: white;
-  text-align: center;
-  padding: 1rem;
   font-size: 2rem;
   font-weight: 600;
-  font-family: var(--font-main);
+  text-align: center;
+  padding: 1rem;
+  font-family: 'Red Hat Display', sans-serif;
 }

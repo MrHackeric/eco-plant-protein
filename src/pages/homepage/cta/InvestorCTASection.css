@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700&display=swap');
+
+:root {
+  --primary-green: #04713d;
+  --secondary-green: #0a9e5b;
+  --bg-light: #f4f8f5;
+  --white: #ffffff;
+  --font-main: 'Red Hat Display', sans-serif;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+}
+
+.investor-cta-section {
+  padding: 6rem 2rem;
+  background: var(--bg-light);
+  font-family: var(--font-main);
+  text-align: center;
+}
+
+.investor-cta-section h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  color: var(--primary-green);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.highlight {
+  color: var(--secondary-green);
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.cta-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  border: none;
+  border-radius: 40px;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.95rem;
+  }
+}

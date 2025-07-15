@@ -103,6 +103,15 @@
   transition: all 0.3s ease;
 }
 
+.btn.download {
+  background-color: #ffffff;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.btn.download:hover {
+  background-color: #f4f4f4;
+}
 .btn.join {
   background-color: var(--primary-green);
   color: #fff;

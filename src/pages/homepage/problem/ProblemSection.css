@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #04713d;
+  --secondary-green: #0a9e5b;
+  --light-green: #f4f8f5;
+  --white: #ffffff;
+  --black: #1d1d1f;
+  --gray: #666666;
+  --transition: all 0.4s ease-in-out;
+  --font-main: 'Red Hat Display', sans-serif;
+  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.12);
+  --shadow-green: 0 8px 24px rgba(4, 113, 61, 0.2);
+}
+
+.problem-section {
+  background-color: var(--light-green);
+  padding: 8rem 2rem;
+  font-family: var(--font-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.problem-card {
+  background-color: var(--white);
+  border-radius: 32px;
+  max-width: 1100px;
+  width: 100%;
+  padding: 4rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.problem-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(4, 113, 61, 0.03), rgba(255, 255, 255, 0));
+  z-index: 0;
+}
+
+.problem-text {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 3rem;
+}
+
+.problem-text h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.problem-text p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gray);
+}
+
+.animated-crisis-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-green);
+  position: relative;
+  z-index: 2;
+  transition: var(--transition);
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 160px; /* ✅ Add this line */
+  justify-content: center; /* ✅ Keeps content vertically centered */
+  text-align: center; /* ✅ Optional for clean layout */
+}
+
+.crisis-icon {
+  font-size: 2.5rem;
+  color: var(--white);
+  animation: icon-bounce 1s infinite alternate ease-in-out;
+}
+
+.crisis-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+@keyframes icon-bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .problem-card {
+    padding: 3rem 2rem;
+  }
+
+  .animated-crisis-card {
+    min-height: 160px;
+  }
+  
+  .crisis-text {
+    font-size: 1.2rem;
+  }
+}

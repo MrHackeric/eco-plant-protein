@@ -1,18 +1,24 @@
 import React from "react";
 import Hero from "../homepage/hero/Hero";
-import ProductsSection from "./products/Products";
-import ImpactSection from "./impact/ImpactSection";
-import ProcessSection from "./process/ProcessSection";
+import SolutionSection from "./solution/SolutionSection";
+import TractionSection from "./traction/TractionSection";
 import NewsSection from "./news/NewsSection";
+import VideoSection from "./video/VideoSection";
+import ProblemSection from "./problem/ProblemSection";
+import MarketSection from "./market/MarketSection";
+import InvestorCTASection from "./cta/InvestorCTASection";
 
 const HomePage = () => {
   return (
     <div>
       <Hero />
-      <ProductsSection />
-      <ImpactSection />
-      <ProcessSection />
-      <NewsSection />
+      <VideoSection />
+      <ProblemSection />
+      <SolutionSection />
+      <MarketSection />
+      <TractionSection />
+      <InvestorCTASection />
+      {/* <NewsSection /> */}
     </div>
   );
 };
