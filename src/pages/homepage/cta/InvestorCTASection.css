@@ -15,12 +15,19 @@
   background: var(--bg-light);
   font-family: var(--font-main);
   text-align: center;
+  width: 100%;
+  background-image: radial-gradient(circle at top right, rgba(10, 158, 91, 0.1), transparent 60%);
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
 }
 
 .investor-cta-section h2 {
   font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   color: var(--primary-green);
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 3rem;
   line-height: 1.5;
   font-weight: 700;
@@ -28,6 +35,9 @@
 
 .highlight {
   color: var(--secondary-green);
+  background: linear-gradient(90deg, var(--primary-green), var(--secondary-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .cta-buttons {
@@ -47,20 +57,58 @@
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
-  box-shadow: var(--shadow);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  animation: pulse 3s ease-in-out infinite;
 }
 
 .cta-btn:hover {
   background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 10px rgba(10, 158, 91, 0.5);
 }
 
-/* Responsive */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(10, 158, 91, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(10, 158, 91, 0.6);
+  }
+}
+
+/* Optional sparkle text animation */
+.sparkle {
+  position: relative;
+  display: inline-block;
+}
+
+.sparkle::after {
+  content: '✨';
+  position: absolute;
+  top: -0.5rem;
+  right: -1rem;
+  animation: twinkle 2s infinite ease-in-out;
+  opacity: 0.6;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2) rotate(20deg);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 600px) {
   .cta-btn {
     width: 100%;
-    justify-content: center;
+    text-align: center;
     font-size: 0.95rem;
   }
 }

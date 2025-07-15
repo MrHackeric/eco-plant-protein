@@ -2,7 +2,6 @@ import React from "react";
 import Hero from "../homepage/hero/Hero";
 import SolutionSection from "./solution/SolutionSection";
 import TractionSection from "./traction/TractionSection";
-import NewsSection from "./news/NewsSection";
 import VideoSection from "./video/VideoSection";
 import ProblemSection from "./problem/ProblemSection";
 import MarketSection from "./market/MarketSection";
@@ -18,7 +17,6 @@ const HomePage = () => {
       <MarketSection />
       <TractionSection />
       <InvestorCTASection />
-      {/* <NewsSection /> */}
     </div>
   );
 };

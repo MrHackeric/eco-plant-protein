@@ -12,27 +12,51 @@ const InvestorCTASection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(titleRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-        },
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        ease: 'power3.out',
-      });
+      // Title animation
+      gsap.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 50, scale: 0.95 },
+        {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+          },
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: 'bounce.out',
+        }
+      );
 
-      gsap.from(buttonRefs.current, {
+      // Button stagger animation
+      gsap.fromTo(
+        buttonRefs.current,
+        { opacity: 0, y: 30, scale: 0.9 },
+        {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%',
+          },
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          stagger: 0.25,
+          ease: 'elastic.out(1, 0.4)',
+        }
+      );
+
+      // Floating parallax section animation
+      gsap.to(sectionRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 85%',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
         },
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power2.out',
+        backgroundPosition: '50% 100%',
+        ease: 'none',
       });
     }, sectionRef);
 
@@ -42,28 +66,21 @@ const InvestorCTASection = () => {
   return (
     <section className="investor-cta-section" ref={sectionRef}>
       <h2 ref={titleRef}>
-        🚀 Join us in scaling East Africa’s first{" "}
+        🚀 Join us in scaling East Africa’s first{' '}
         <span className="highlight">AI-powered, zero-waste protein factory.</span>
       </h2>
       <div className="cta-buttons">
-        <button
-          ref={(el) => (buttonRefs.current[0] = el)}
-          className="cta-btn"
-        >
-          📩 Schedule a Call
-        </button>
-        <button
-          ref={(el) => (buttonRefs.current[1] = el)}
-          className="cta-btn"
-        >
-          💸 Invest in the Future of Food
-        </button>
-        <button
-          ref={(el) => (buttonRefs.current[2] = el)}
-          className="cta-btn"
-        >
-          📊 Access Pitch Deck
-        </button>
+        {['📩 Schedule a Call', '💸 Invest in the Future of Food', '📊 Access Pitch Deck'].map(
+          (label, index) => (
+            <button
+              key={index}
+              className="cta-btn"
+              ref={(el) => (buttonRefs.current[index] = el)}
+            >
+              <span className="sparkle">{label}</span>
+            </button>
+          )
+        )}
       </div>
     </section>
   );
