@@ -1,12 +1,12 @@
-// src/App.jsx
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <MainPage />
-    </div>
+    </BrowserRouter>
   );
 }
 

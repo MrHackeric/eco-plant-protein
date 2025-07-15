@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+
 import HeroProcess from './hero/HeroProcess';
 import HydrogenCards from "./hydrogen/HydrogenCards";
 import ProteinProcess from "./protein/ProteinProcess";
@@ -9,6 +11,11 @@ import FermentationProcess from "./fermentation/FermentationProcess";
 import ContactCTA from "./contact/ContactCTA";
 
 function ProductPage() {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
         <HeroProcess />

@@ -1,4 +1,3 @@
-/* ProcessSection.css */
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800&display=swap');
 
 :root {
@@ -17,14 +16,20 @@
   --shadow-green: 0 8px 24px rgba(4, 113, 61, 0.2);
 }
 
-/* Base Styles */
+/* ============================
+   Section Base
+============================ */
 .process-section {
   background-color: var(--light-green);
   padding: 8rem 2rem;
   font-family: var(--font-main);
   overflow: hidden;
+  position: relative;
 }
 
+/* ============================
+   Card Container
+============================ */
 .process-card {
   background-color: var(--white);
   border-radius: 32px;
@@ -33,27 +38,27 @@
   margin: 0 auto;
   padding: 4rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  box-shadow: var(--shadow-lg);
-  gap: 4rem;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 4rem;
+  box-shadow: var(--shadow-lg);
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .process-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(4, 113, 61, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+  inset: 0;
+  background: linear-gradient(135deg, rgba(4, 113, 61, 0.03), rgba(255, 255, 255, 0));
   z-index: 0;
 }
 
-/* Text Styles */
+/* ============================
+   Text Section
+============================ */
 .process-text {
   flex: 1 1 500px;
   position: relative;
@@ -61,11 +66,11 @@
 }
 
 .process-text h2 {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   color: var(--black);
-  margin-bottom: 2.5rem;
   font-weight: 700;
-  line-height: 1.4;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
   position: relative;
 }
 
@@ -80,7 +85,9 @@
   border-radius: 2px;
 }
 
-/* Button Styles */
+/* ============================
+   Button Styles
+============================ */
 .process-button {
   background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
   color: var(--white);
@@ -100,31 +107,24 @@
   z-index: 1;
 }
 
-.button-text {
+.process-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 0;
+}
+
+.button-text,
+.button-icon {
   position: relative;
   z-index: 2;
 }
 
 .button-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
   transition: transform 0.3s ease;
-}
-
-.process-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
-  opacity: 0;
-  transition: var(--transition);
-  z-index: 1;
 }
 
 .process-button:hover {
@@ -144,7 +144,9 @@
   font-size: 1.2rem;
 }
 
-/* Image Styles */
+/* ============================
+   Image Section
+============================ */
 .process-image {
   flex: 1 1 500px;
   display: flex;
@@ -156,35 +158,23 @@
 .image-container {
   position: relative;
   width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: var(--shadow-md);
 }
 
 .image-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.process-image img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  display: block;
   transition: transform 0.8s ease;
 }
 
 .image-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: linear-gradient(to bottom, rgba(4, 113, 61, 0.1), rgba(4, 113, 61, 0.3));
   mix-blend-mode: multiply;
   transition: var(--transition);
@@ -198,7 +188,9 @@
   background: linear-gradient(to bottom, rgba(4, 113, 61, 0.2), rgba(4, 113, 61, 0.4));
 }
 
-/* Responsive Design */
+/* ============================
+   Responsive Design
+============================ */
 @media (max-width: 1200px) {
   .process-card {
     padding: 3rem;
@@ -210,24 +202,20 @@
   .process-section {
     padding: 6rem 2rem;
   }
-  
+
   .process-card {
     flex-direction: column;
     text-align: center;
     padding: 3rem 2rem;
   }
-  
+
   .process-text h2::after {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .process-button {
     margin: 0 auto;
-  }
-  
-  .image-container {
-    max-width: 100%;
   }
 }
 
@@ -235,7 +223,7 @@
   .process-section {
     padding: 4rem 1.5rem;
   }
-  
+
   .process-card {
     padding: 2.5rem 1.5rem;
     border-radius: 24px;
@@ -246,12 +234,12 @@
   .process-section {
     padding: 3rem 1rem;
   }
-  
+
   .process-card {
     padding: 2rem 1.5rem;
     gap: 2rem;
   }
-  
+
   .process-button {
     width: 100%;
     justify-content: center;

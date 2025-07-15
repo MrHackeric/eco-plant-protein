@@ -1,220 +1,208 @@
-/* ImpactSection.css */
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap');
 
 :root {
   --primary-green: #04713d;
+  --secondary-green: #0a9e5b;
   --light-green: #f4f8f5;
   --white: #ffffff;
   --black: #1d1d1f;
   --gray: #666666;
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --font-main: 'Red Hat Display', sans-serif;
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.16);
+  --shadow-green: 0 8px 24px rgba(4, 113, 61, 0.2);
 }
 
-/* Base Styles */
-.impact-section {
-  background-color: var(--light-green);
-  padding: 6rem 2rem;
-  font-family: var(--font-main);
-  overflow: hidden;
-}
-
-.impact-container {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 4rem;
-}
-
-/* Left Side Styles */
-.impact-left {
-  flex: 1 1 45%;
-  min-width: 300px;
-}
-
-.impact-subtitle {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--black);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
-}
-
-.impact-paragraph {
-  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
-  color: var(--gray);
-  margin-bottom: 2rem;
-  max-width: 500px;
-  line-height: 1.6;
-}
-
-.impact-button {
-  background-color: var(--primary-green) !important;
-  color: var(--white) !important;
-  padding: 0.75rem 2rem !important;
-  border-radius: 50px !important;
-  text-transform: none !important;
-  font-weight: 600 !important;
-  font-family: var(--font-main) !important;
-  font-size: 1rem !important;
-  letter-spacing: 0.5px;
-  box-shadow: var(--shadow-sm) !important;
-  transition: var(--transition) !important;
-  transform: translateY(0);
-}
-
-.impact-button:hover {
-  background-color: #036034 !important;
-  transform: translateY(-3px) !important;
-  box-shadow: var(--shadow-md) !important;
-}
-
-.impact-button .MuiButton-endIcon {
-  transition: transform 0.3s ease;
-}
-
-.impact-button:hover .MuiButton-endIcon {
-  transform: translateX(3px);
-}
-
-/* Right Side Styles */
-.impact-right {
-  flex: 1 1 45%;
-  min-width: 300px;
+/* ============================
+   Base & Layout
+============================ */
+.impact-modern-section {
   position: relative;
+  background: linear-gradient(135deg, var(--light-green), #e1f2e9);
+  padding: 8rem 2rem;
+  overflow: hidden;
+  font-family: var(--font-main);
+  z-index: 1;
 }
 
-.impact-title {
+.impact-modern-section::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 130%;
+  height: 130%;
+  background: radial-gradient(circle, rgba(4, 113, 61, 0.06), transparent 70%);
+  animation: floatBg 20s infinite linear;
+  z-index: 0;
+}
+
+@keyframes floatBg {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(-10%, -10%) rotate(360deg);
+  }
+}
+
+.impact-modern-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--white);
+  padding: 4rem;
+  border-radius: 32px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 3rem;
+  z-index: 2;
+}
+
+/* ============================
+   Text
+============================ */
+.impact-modern-text {
+  flex: 1 1 500px;
+  z-index: 2;
+}
+
+.impact-modern-text h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   color: var(--black);
-  margin-bottom: 3rem;
-  text-align: right;
   line-height: 1.2;
+  margin-bottom: 1.5rem;
 }
 
-/* Image Cluster Styles */
-.image-cluster {
+.impact-modern-text p {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+/* ============================
+   Button
+============================ */
+.impact-modern-button {
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: var(--white);
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-green);
+  z-index: 2;
   position: relative;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
+}
+
+.impact-modern-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(4, 113, 61, 0.3);
+}
+
+.impact-modern-button .icon {
+  transition: transform 0.3s ease;
+}
+
+.impact-modern-button:hover .icon {
+  transform: translateX(5px);
+}
+
+/* ============================
+   Image
+============================ */
+.impact-modern-image-wrapper {
+  flex: 1 1 500px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.image-large {
-  width: 70%;
-  max-width: 350px;
-  height: auto;
-  aspect-ratio: 1;
+.impact-modern-image {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 4/3;
+  border-radius: 28px;
   object-fit: cover;
-  border-radius: 20px;
+  transition: transform 0.8s ease;
   z-index: 2;
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  transition: var(--transition);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
 }
 
-.image-small {
-  width: 40%;
-  max-width: 180px;
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: var(--shadow-md);
+.impact-modern-image-wrapper:hover .impact-modern-image {
+  transform: scale(1.05);
+}
+
+.impact-modern-image-glow {
   position: absolute;
-  z-index: 3;
-  transition: var(--transition);
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  background: radial-gradient(circle at 50% 50%, rgba(4, 113, 61, 0.1), transparent 70%);
+  filter: blur(40px);
+  z-index: 1;
 }
 
-.image-top {
-  top: -10%;
-  left: 50%;
-  transform: translateX(-50%) rotate(5deg);
+/* ============================
+   Particles Layer (if needed)
+============================ */
+#impact-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.image-bottom {
-  bottom: -10%;
-  left: 50%;
-  transform: translateX(-50%) rotate(-5deg);
-}
-
-/* Hover Effects */
-.image-large:hover {
-  transform: scale(1.03);
-  z-index: 4;
-}
-
-.image-small:hover {
-  transform: translateX(-50%) rotate(0deg) scale(1.1) !important;
-  z-index: 5;
-}
-
-/* Responsive Adjustments */
+/* ============================
+   Responsive Design
+============================ */
 @media (max-width: 992px) {
-  .impact-container {
+  .impact-modern-content {
     flex-direction: column;
-    gap: 3rem;
-  }
-  
-  .impact-title {
     text-align: center;
+    padding: 3rem 2rem;
   }
-  
-  .impact-paragraph {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .impact-button {
+
+  .impact-modern-button {
     margin: 0 auto;
-    display: block;
-  }
-  
-  .image-cluster {
-    margin-top: 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .impact-section {
-    padding: 4rem 1.5rem;
+  .impact-modern-section {
+    padding: 6rem 1.5rem;
   }
-  
-  .image-small {
-    width: 35%;
+
+  .impact-modern-content {
+    padding: 2.5rem 1.5rem;
   }
-  
-  .image-top {
-    top: -8%;
-  }
-  
-  .image-bottom {
-    bottom: -8%;
+
+  .impact-modern-image {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .impact-section {
-    padding: 3rem 1rem;
+  .impact-modern-section {
+    padding: 4rem 1rem;
   }
-  
-  .image-small {
-    display: none;
-  }
-  
-  .image-large {
+
+  .impact-modern-button {
     width: 100%;
-    max-width: 280px;
+    justify-content: center;
   }
 }
