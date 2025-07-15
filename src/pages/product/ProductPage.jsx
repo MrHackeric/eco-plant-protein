@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+
 import HeroProduct from "./hero/HeroProduct";
 import FoodProduct from "./food/FoodProduct";
 import PetFood from "./pet/PetFood";
@@ -10,6 +12,11 @@ import CallToAction from "./cta/CallToAction";
 import ContactCTA from "./contact/ContactCTA";
 
 function ProductPage() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <HeroProduct />
