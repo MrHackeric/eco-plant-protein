@@ -1,94 +1,66 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./ImpactHero.css";
-import AfricaImage from "../../assets/images/african-mosaic-child.png";
+
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
+
+const ecoStats = [
+  {
+    value: 10,
+    suffix: "+ Tons",
+    description: "Agricultural Waste Upcycled",
+  },
+  {
+    value: 30000,
+    suffix: "+",
+    description:
+      "Over 30,000 protein-rich meals distributed to vulnerable children and families",
+  },
+  {
+    value: 200,
+    suffix: "+",
+    description: "Livelihood Creations",
+  },
+];
 
 const ImpactHero = () => {
-  const ecoStats = [
-    {
-      value: 10,
-      suffix: " tons",
-      description:
-        "• Over 10 tons of corn cobs recycled from landfills\
-                    • Creating a zero-waste circular model that supports regenerative agriculture",
-    },
-    {
-      value: 30000,
-      suffix: "+",
-      description:
-        "•	Over 30000 protein rich meals distributed to vulnerable children and families\
-•	Combating protein malnutrition in arid and semi-arid Kenyan regions\
-•	Proven 40% increase in child nutritional markers in early pilots",
-    },
+  const statRefs = useRef([]);
+  const [counts, setCounts] = useState(ecoStats.map(() => 0));
 
-    {
-      value: 200,
-      suffix: "+",
-      description:
-        "•	Trained 200+ youth and women in green jobs: fermentation, waste aggregation, and product distribution\
-•	Established community micro-hubs for decentralized production",
-    },
-  ];
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      statRefs.current.forEach((el, index) => {
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top 80%",
+          onEnter: () => {
+            gsap.to(
+              {},
+              {
+                duration: 2,
+                ease: "power2.out",
+                onUpdate: function () {
+                  const progress = this.progress();
+                  const target = ecoStats[index].value;
+                  const formatted = Math.floor(progress * target);
+                  setCounts((prev) => {
+                    const newCounts = [...prev];
+                    newCounts[index] = formatted;
+                    return newCounts;
+                  });
+                },
+              }
+            );
+          },
+        });
+      });
+    });
 
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
-
-  const formatLargeNumber = (val, suffix) => {
-    if (suffix === "B+") {
-      return `${(val / 1_000_000_000).toFixed(1)}B+`;
-    } else if (suffix === "M+") {
-      return `${(val / 1_000_000).toFixed(1)}M+`;
-    } else {
-      return `${Math.floor(val)}${suffix}`;
-    }
-  };
-
-  // Function to render description with bullet points or plain text
-  const renderDescription = (description) => {
-    if (!description) {
-      return <p className="eco-stat-label">No description available</p>;
-    }
-
-    // If description is an array (for future-proofing)
-    if (Array.isArray(description)) {
-      return (
-        <ul className="eco-stat-bullet-list">
-          {description.map((point, index) => (
-            <li key={index} className="eco-stat-label">
-              {point}
-            </li>
-          ))}
-        </ul>
-      );
-    }
-
-    // Split string by common bullet point delimiters
-    const points = description
-      .split(/[\n•*]/) // Split by newline, •, *, or -
-      .map((point) => point.trim())
-      .filter((point) => point.length > 0);
-
-    // Render single-line description as <p>
-    if (points.length <= 1) {
-      return <p className="eco-stat-label">{description}</p>;
-    }
-
-    // Render multi-point description as <ul>
-    return (
-      <ul className="eco-stat-bullet-list">
-        {points.map((point, index) => (
-          <li key={index} className="eco-stat-label">
-            {point}
-          </li>
-        ))}
-      </ul>
-    );
-  };
+    return () => ctx.revert();
+  }, []);
 
   return (
     <motion.div
@@ -141,7 +113,6 @@ const ImpactHero = () => {
 
           {/* Stats Section */}
           <motion.div
-            ref={ref}
             className="eco-stats-container"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -151,6 +122,7 @@ const ImpactHero = () => {
               <motion.div
                 key={index}
                 className="eco-stat-card"
+                ref={(el) => (statRefs.current[index] = el)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -161,23 +133,10 @@ const ImpactHero = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <h3 className="eco-stat-value">
-                  {inView ? (
-                    <CountUp
-                      start={stat.rawValue ? stat.rawValue * 0.7 : 0}
-                      end={stat.rawValue || stat.value}
-                      duration={2}
-                      formattingFn={(val) =>
-                        formatLargeNumber(val, stat.suffix)
-                      }
-                      decimals={stat.suffix === "%" ? 1 : 0}
-                    />
-                  ) : stat.suffix ? (
-                    `0${stat.suffix}`
-                  ) : (
-                    "0"
-                  )}
+                  {counts[index].toLocaleString()}
+                  {stat.suffix}
                 </h3>
-                {renderDescription(stat.description)}
+                <h2 className="eco-stat-description">{stat.description}</h2>
               </motion.div>
             ))}
           </motion.div>

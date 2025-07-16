@@ -12,17 +12,18 @@
 .impact-card {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   border-radius: 0;
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   background: white;
-  transition: transform 0.3s ease;
-  will-change: opacity, transform;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+  gap: 2rem;
 }
 
 .impact-card.active {
@@ -31,21 +32,16 @@
 }
 
 .impact-card:hover {
-  transform: translateY(-8px) !important;
-}
-
-.impact-image {
-  width: 100%;
-  height: 800px;
-  object-fit: fill;
-  object-position: center;
+  transform: translateY(-8px);
 }
 
 .impact-info {
+  width: 50%;
   display: flex;
   align-items: flex-start;
   gap: 1rem;
   padding: 2rem 4vw;
+  flex-shrink: 0;
 }
 
 .impact-icon {
@@ -83,8 +79,26 @@
   margin-bottom: 0.5rem;
 }
 
+.impact-image {
+  width: 50%;
+  height: 100%;
+  max-height: 500px;
+  object-fit: fill;
+  object-position: center;
+  flex-shrink: 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
+  .impact-card {
+    flex-direction: column;
+  }
+
+  .impact-info,
+  .impact-image {
+    width: 100%;
+  }
+
   .impact-image {
     height: 300px;
   }
