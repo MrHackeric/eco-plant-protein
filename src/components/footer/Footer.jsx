@@ -6,10 +6,10 @@ import {
   Instagram,
   LinkedIn,
   ArrowForward,
+  Favorite,
 } from "@mui/icons-material";
 import "./Footer.css";
 
-// Partner Logos
 import partner1 from "../../assets/partners/partner-1.png";
 import partner2 from "../../assets/partners/partner-2.png";
 import partner3 from "../../assets/partners/partner-3.png";
@@ -74,10 +74,12 @@ const Footer = () => {
             <Link to="/contact" className="footer-cta">
               Contact Us <ArrowForward className="arrow-icon" />
             </Link>
+            <Link to="/donate" className="footer-donate">
+              Donate <Favorite className="favourite-icon" />
+            </Link>
           </div>
         </div>
 
-        {/* Partners Section */}
         <div className="footer-partners">
           <h3 className="partners-heading">OUR PARTNERS</h3>
           <div className="partners-slider-wrapper">
