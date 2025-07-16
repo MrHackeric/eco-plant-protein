@@ -4,68 +4,90 @@
   --primary-green: #04713d;
   --light-green: #f4f8f5;
   --white: #ffffff;
-  --black: #000000;
-  --gray: #666666;
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --gray: #333333;
+  --transition: all 0.3s ease;
   --font-main: 'Red Hat Display', sans-serif;
 }
 
-.food-section {
+.innovation-section {
   background-color: #f1f6f2;
   padding: 4rem 2rem;
   display: flex;
   justify-content: center;
+  font-family: var(--font-main);
 }
 
-.food-container {
+.innovation-container {
   display: flex;
   max-width: 1200px;
-  background: white;
+  background: var(--white);
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   flex-direction: row;
 }
 
-.food-text {
+.innovation-text {
   flex: 1;
   padding: 3rem;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.food-header {
+.innovation-header {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
-.food-header h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
+.innovation-header h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
   color: #1c1c1c;
 }
 
-.food-icon {
-  color: #0d5b38;
+.innovation-icon {
+  color: var(--primary-green);
   font-size: 1.8rem;
 }
 
-.food-text p {
-  margin-top: 1.5rem;
+.innovation-subtitle {
+  margin-top: 1rem;
   font-size: 1.1rem;
-  line-height: 1.8;
-  color: #333;
+  line-height: 1.7;
+  color: var(--gray);
 }
 
-.food-image {
+.innovation-list {
+  margin-top: 2rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.innovation-bullet {
+  font-size: 1.05rem;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInBullet 0.6s ease forwards;
+}
+
+.check-icon {
+  color: var(--primary-green);
+  font-size: 1.2rem;
+}
+
+/* Image Section */
+.innovation-image {
   flex: 1;
-  max-height: 100%;
 }
 
-.food-image img {
+.innovation-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -94,6 +116,13 @@
   }
 }
 
+@keyframes fadeInBullet {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .fade-in-left {
   animation: fadeInLeft 1s ease forwards;
 }
@@ -104,19 +133,33 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .food-container {
+  .innovation-container {
     flex-direction: column;
   }
 
-  .food-text {
+  .innovation-text {
     padding: 2rem;
   }
 
-  .food-header h2 {
-    font-size: 1.5rem;
+  .innovation-header h2 {
+    font-size: 1.6rem;
   }
 
-  .food-text p {
+  .innovation-subtitle {
     font-size: 1rem;
+  }
+
+  .innovation-image {
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .innovation-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .innovation-bullet {
+    font-size: 0.95rem;
   }
 }

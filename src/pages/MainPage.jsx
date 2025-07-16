@@ -8,7 +8,6 @@ import ImpactPage from "./impact/ImpactPage";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ProductPage from "./product/ProductPage";
-import ProcessPage from "./process/ProcessPage";
 import ScrollToTop from "./ScrollToTop";
 import DonationPage from "./donation/DonationPage";
 function MainPage() {
@@ -23,7 +22,6 @@ function MainPage() {
         <Route path="/impact" element={<ImpactPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/products" element={<ProductPage />} />
-        <Route path="/process" element={<ProcessPage />} />
         <Route path="/donate" element={<DonationPage />} />
       </Routes>
       <Footer />

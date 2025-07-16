@@ -3,12 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 
 import HeroProduct from "./hero/HeroProduct";
-import FoodProduct from "./food/FoodProduct";
-import PetFood from "./pet/PetFood";
-import LivestockFeed from "./livestock/LivestockFeed";
-import NonFood from "./nonfood/NonFood";
-import ReactorSection from "./reactor/ReactorSection";
-import CallToAction from "./cta/CallToAction";
+import InnovationSection from "./innovation/InnovationSection";
+import HowItWorksSection from "./works/HowItWorksSection";
+import WhyItMatters from "./why/WhyItMatters";
 import ContactCTA from "./contact/ContactCTA";
 
 function ProductPage() {
@@ -20,12 +17,9 @@ function ProductPage() {
   return (
     <div>
       <HeroProduct />
-      <FoodProduct />
-      <PetFood />
-      <LivestockFeed />
-      <NonFood />
-      <ReactorSection />
-      <CallToAction />
+      <InnovationSection />
+      <HowItWorksSection />
+      <WhyItMatters />
       <ContactCTA />
     </div>
   );

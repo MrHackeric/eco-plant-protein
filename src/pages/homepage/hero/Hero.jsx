@@ -1,20 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import InfoIcon from "@mui/icons-material/Info";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import "./Hero.css";
 
-// Image imports
-import bgImage from "../../../assets/images/hero-bg.jpg";
-import img1 from "../../../assets/images/hero-bg.jpg";
-import img2 from "../../../assets/images/hero-bg.jpg";
-import img3 from "../../../assets/images/hero-bg.jpg";
+import heroImage from "../../../assets/images/hero-img.png";
 
 const Hero = () => {
   return (
-    <div className="hero-container" style={{ backgroundImage: `url(${bgImage})` }}>
-      <div className="overlay"></div>
+    <section className="hero-section">
+      <div className="hero-overlay" />
       <div className="hero-content-wrapper">
-        {/* Left Text Section */}
+        {/* Left Text */}
         <motion.div
           className="hero-text"
           initial={{ x: -50, opacity: 0 }}
@@ -29,27 +28,29 @@ const Hero = () => {
             We turn discarded corn cobs into high-value, plant-based protein using AI-optimized fermentation—tackling hunger, waste, and climate change in one solution.
           </p>
           <div className="hero-buttons">
-            <button className="btn join">
-              INVEST IN US <ArrowForwardIcon />
+            <button className="btn green">
+              <AttachMoneyIcon /> INVEST IN US
             </button>
-            <button className="btn partner">EXPLORE THE INNOVATION</button>
-            <button className="btn download">DOWNLOAD INVESTOR DECK</button>
+            <button className="btn white">
+              <InfoIcon /> EXPLORE THE INNOVATION
+            </button>
+            <button className="btn outline">
+              <FileDownloadIcon /> DOWNLOAD DECK
+            </button>
           </div>
         </motion.div>
 
-        {/* Right Images Section */}
+        {/* Right Image */}
         <motion.div
-          className="hero-images"
+          className="hero-image-container"
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.2 }}
         >
-          <motion.img src={img1} alt="innovation 1" className="hero-img top" whileHover={{ scale: 1.02 }} />
-          <motion.img src={img2} alt="innovation 2" className="hero-img middle" whileHover={{ scale: 1.02 }} />
-          <motion.img src={img3} alt="innovation 3" className="hero-img bottom" whileHover={{ scale: 1.02 }} />
+          <img src={heroImage} alt="Hero Visual" className="hero-image" />
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

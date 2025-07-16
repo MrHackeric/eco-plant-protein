@@ -2,40 +2,28 @@
 
 :root {
   --primary-green: #04713d;
-  --light-green: #f4f8f5;
   --white: #ffffff;
   --black: #000000;
   --gray: #666666;
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   --font-main: 'Red Hat Display', sans-serif;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700;800&display=swap');
-
-:root {
-  --primary-green: #04713d;
-  --white: #ffffff;
-  --dark: #1a1a1a;
-  --overlay-dark: rgba(0, 0, 0, 0.55);
-}
-
-.hero-container {
+/* HERO SECTION */
+.hero-section {
   position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  color: var(--white);
+  background: url('../../../assets/images/hero-bg.jpg') center/cover no-repeat;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Red Hat Display', sans-serif;
   overflow: hidden;
 }
 
-.overlay {
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background-color: var(--overlay-dark);
+  background: rgba(0, 0, 0, 0.55);
   z-index: 1;
 }
 
@@ -44,18 +32,18 @@
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
+  align-items: center;
   max-width: 1440px;
+  width: 100%;
   padding: 2rem;
   flex-wrap: wrap;
-  gap: 2rem;
 }
 
-/* LEFT SIDE */
+/* LEFT TEXT */
 .hero-text {
-  flex: 1 1 55%;
-  max-width: 700px;
+  flex: 1 1 50%;
+  max-width: 600px;
+  color: var(--white);
 }
 
 .hero-badge {
@@ -67,21 +55,20 @@
   font-size: 0.85rem;
   letter-spacing: 1px;
   display: inline-block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .hero-heading {
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero-description {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
-  max-width: 600px;
 }
 
 .hero-buttons {
@@ -91,77 +78,67 @@
 }
 
 .btn {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  border: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition);
+  border: none;
 }
 
-.btn.download {
-  background-color: #ffffff;
-  color: #000;
-  border: 2px solid #000;
-}
-
-.btn.download:hover {
-  background-color: #f4f4f4;
-}
-.btn.join {
+.btn.green {
   background-color: var(--primary-green);
-  color: #fff;
+  color: var(--white);
 }
 
-.btn.join:hover {
-  background-color: #075f34;
+.btn.green:hover {
+  background-color: #035b30;
 }
 
-.btn.partner {
-  background-color: #fff;
+.btn.white {
+  background-color: #ffffff;
   color: var(--primary-green);
 }
 
-.btn.partner:hover {
+.btn.white:hover {
   background-color: #f1f1f1;
 }
 
-/* RIGHT IMAGE SECTION */
-.hero-images {
-  flex: 1 1 35%;
+.btn.outline {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn.outline:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* RIGHT IMAGE */
+.hero-image-container {
+  flex: 1 1 40%;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: flex-end;
 }
 
-.hero-img {
-  border-radius: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  object-fit: cover;
-  width: 260px;
-  height: 160px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
-}
-
-.hero-img.top {
-  align-self: flex-end;
-}
-
-.hero-img.middle {
-  align-self: center;
-}
-
-.hero-img.bottom {
-  align-self: flex-start;
+.hero-image {
+  width: 1000px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .hero-section {
+    height: auto;
+    padding: 4rem 0;
+  }
+
   .hero-content-wrapper {
     flex-direction: column;
     align-items: center;
@@ -169,24 +146,16 @@
   }
 
   .hero-text {
-    align-items: center;
+    max-width: 100%;
     text-align: center;
   }
 
-  .hero-heading {
-    font-size: 2.2rem;
-  }
-
-  .hero-images {
-    flex-direction: row;
-    flex-wrap: wrap;
+  .hero-image-container {
     justify-content: center;
-    gap: 1rem;
     margin-top: 2rem;
   }
 
-  .hero-img {
-    width: 120px;
-    height: 100px;
+  .hero-image {
+    width: 90%;
   }
 }

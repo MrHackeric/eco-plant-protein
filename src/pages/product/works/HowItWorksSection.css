@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #04713d;
+  --light-green: #f4f8f5;
+  --white: #ffffff;
+  --gray: #333;
+  --font-main: 'Red Hat Display', sans-serif;
+  --transition: all 0.3s ease;
+}
+
+.how-section {
+  background-color: #f4fbf6;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-main);
+}
+
+.how-container {
+  display: flex;
+  max-width: 1200px;
+  background: var(--white);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  flex-direction: row;
+}
+
+.how-text {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.how-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.how-header h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #1c1c1c;
+}
+
+.how-icon {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+}
+
+.how-steps {
+  margin-top: 1.5rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.how-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--gray);
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInStep 0.6s ease forwards;
+}
+
+.step-icon {
+  color: var(--primary-green);
+  margin-top: 0.2rem;
+}
+
+.how-features-title {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-green);
+}
+
+.how-features {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.how-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: var(--gray);
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fadeInStep 0.6s ease forwards;
+}
+
+.check-icon {
+  color: var(--primary-green);
+  font-size: 1.2rem;
+}
+
+.how-image {
+  flex: 1;
+}
+
+.how-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInStep {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.fade-in-left {
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.fade-in-right {
+  animation: fadeInRight 1s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .how-container {
+    flex-direction: column;
+  }
+
+  .how-text {
+    padding: 2rem;
+  }
+
+  .how-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .how-step,
+  .how-feature {
+    font-size: 1rem;
+  }
+
+  .how-image {
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .how-step,
+  .how-feature {
+    font-size: 0.95rem;
+  }
+}

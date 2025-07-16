@@ -1,6 +1,7 @@
 import React from 'react';
 import './ContactCTA.css';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Link } from 'react-router-dom';
 
 const ContactCTA = () => {
   return (
@@ -9,9 +10,9 @@ const ContactCTA = () => {
         Get in touch with us <br />
         to find out more!
       </h2>
-      <button className="contact-button">
+      <Link to="/contact" className="contact-button">
         Contact us now <ArrowForwardIcon />
-      </button>
+      </Link>
     </section>
   );
 };
