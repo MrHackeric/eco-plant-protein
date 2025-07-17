@@ -85,6 +85,11 @@
   gap: 0.75rem;
 }
 
+.hero-buttons a {
+  text-decoration: none;
+  display: inline-block;
+}
+
 .btn {
   display: flex;
   align-items: center;

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './WhyItMatters.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import InfoIcon from '@mui/icons-material/Info';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import mattersImage from '../../../assets/images/food-plate.jpg'; // Replace with appropriate image
+import mattersImage from '../../../assets/images/why.jpg';
 
 const WhyItMatters = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   const points = [
     "Disrupts traditional protein supply chains",
     "Makes high-quality protein accessible in food-insecure regions",
@@ -15,8 +21,8 @@ const WhyItMatters = () => {
   return (
     <section className="matters-section">
       <div className="matters-container">
-        <div className="matters-text fade-in-left">
-          <div className="matters-header">
+        <div className="matters-text" data-aos="fade-up">
+          <div className="matters-header" data-aos="fade-right" data-aos-delay="100">
             <h2>Why It Matters</h2>
             <InfoIcon className="matters-icon" />
           </div>
@@ -25,7 +31,8 @@ const WhyItMatters = () => {
               <li
                 key={index}
                 className="matters-point"
-                style={{ animationDelay: `${index * 0.2 + 0.3}s` }}
+                data-aos="fade-up"
+                data-aos-delay={200 + index * 200}
               >
                 <CheckCircleIcon className="check-icon" />
                 {point}
@@ -34,7 +41,7 @@ const WhyItMatters = () => {
           </ul>
         </div>
 
-        <div className="matters-image fade-in-right">
+        <div className="matters-image" data-aos="fade-left" data-aos-delay="500">
           <img src={mattersImage} alt="Why it matters" />
         </div>
       </div>

@@ -16,9 +16,9 @@
 /* Hero Background */
 .hero-product-background {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
-    url('../../../assets/images/hero-bg.jpg') center/cover no-repeat;
-  height: 85vh;
-  min-height: 600px;
+    url('../../../assets/images/solution-img.jpg') center/cover no-repeat;
+  height: 100%;
+  min-height: 1200px;
   display: flex;
   align-items: center;
   justify-content: center;

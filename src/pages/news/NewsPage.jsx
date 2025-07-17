@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import newsData from "./newsData.js";
 import "./NewsPage.css";
+import { Helmet } from "react-helmet";
+
 
 const NewsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,6 +17,13 @@ const NewsPage = () => {
 
   return (
     <div className="news-page">
+      <Helmet>
+        <title>News | EcoPlantProtein</title>
+        <meta
+          name="description"
+          content="News."
+        />
+      </Helmet>
       <div className="news-header">
         <h1>Latest News & Updates</h1>
         <p>Stay updated with our latest achievements and milestones</p>

@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './HowItWorksSection.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import processImage from '../../../assets/images/food-plate.jpg'; // Replace with your relevant image
+import processImage from '../../../assets/images/works.jpg';
 
 const HowItWorksSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <section className="how-section">
       <div className="how-container">
-        <div className="how-text fade-in-left">
-          <div className="how-header">
+        <div className="how-text" data-aos="fade-up">
+          <div className="how-header" data-aos="fade-right">
             <h2>How It Works</h2>
             <SettingsSuggestIcon className="how-icon" />
           </div>
+
           <ol className="how-steps">
             {[
               "Agro-waste sourcing: We collect corn cobs from farmers and waste aggregators.",
@@ -23,14 +30,15 @@ const HowItWorksSection = () => {
               <li
                 key={i}
                 className="how-step"
-                style={{ animationDelay: `${i * 0.2 + 0.3}s` }}
+                data-aos="fade-up"
+                data-aos-delay={200 + i * 200}
               >
                 <ArrowRightAltIcon className="step-icon" /> {step}
               </li>
             ))}
           </ol>
 
-          <h3 className="how-features-title">Key Features</h3>
+          <h3 className="how-features-title" data-aos="fade-up" data-aos-delay="900">Key Features</h3>
           <ul className="how-features">
             {[
               "Zero-waste circular process",
@@ -41,7 +49,8 @@ const HowItWorksSection = () => {
               <li
                 key={i}
                 className="how-feature"
-                style={{ animationDelay: `${i * 0.2 + 0.9}s` }}
+                data-aos="zoom-in"
+                data-aos-delay={1000 + i * 200}
               >
                 <CheckCircleIcon className="check-icon" /> {feature}
               </li>
@@ -49,7 +58,7 @@ const HowItWorksSection = () => {
           </ul>
         </div>
 
-        <div className="how-image fade-in-right">
+        <div className="how-image" data-aos="fade-left" data-aos-delay="700">
           <img src={processImage} alt="Process Illustration" />
         </div>
       </div>

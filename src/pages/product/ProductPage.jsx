@@ -7,6 +7,7 @@ import InnovationSection from "./innovation/InnovationSection";
 import HowItWorksSection from "./works/HowItWorksSection";
 import WhyItMatters from "./why/WhyItMatters";
 import ContactCTA from "./contact/ContactCTA";
+import { Helmet } from "react-helmet";
 
 function ProductPage() {
 
@@ -16,6 +17,13 @@ function ProductPage() {
 
   return (
     <div>
+      <Helmet>
+        <title>Our Products | EcoPlantProtein</title>
+        <meta
+          name="description"
+          content="Learn about our impactful Innovation."
+        />
+      </Helmet>
       <HeroProduct />
       <InnovationSection />
       <HowItWorksSection />
