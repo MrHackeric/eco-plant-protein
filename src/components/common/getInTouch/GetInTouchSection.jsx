@@ -1,5 +1,6 @@
 "use client";
 
+import { href } from "react-router-dom";
 import ContactButton from "./GetInTouchButton";
 
 const ContactSection = () => {
@@ -25,7 +26,7 @@ const ContactSection = () => {
         to find out more!
       </h2>
 
-      <ContactButton onClick={() => alert("Contact clicked!")} />
+      <ContactButton href="/contact" />
     </div>
   );
 };

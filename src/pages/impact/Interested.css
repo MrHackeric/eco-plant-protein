@@ -99,7 +99,7 @@
 }
 
 .product-bag::before {
-  content: "eco nutri";
+  content: "EcoPlant Protein";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -237,40 +237,6 @@
   width: calc(100% - 30px);
 }
 
-.back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-.back-to-top:hover {
-  border-color: #2e7d32;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.back-to-top-icon {
-  color: #666;
-  font-size: 20px;
-  transition: color 0.3s ease;
-}
-
-.back-to-top:hover .back-to-top-icon {
-  color: #2e7d32;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .sample-request-section {
@@ -313,13 +279,6 @@
   .sample-request-button {
     padding: 18px 35px;
     font-size: 15px;
-  }
-
-  .back-to-top {
-    bottom: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
   }
 }
 

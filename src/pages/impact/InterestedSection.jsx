@@ -4,13 +4,6 @@ import { ArrowForward, KeyboardArrowUp } from "@mui/icons-material";
 import "./Interested.css";
 
 const InterestedSection = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <>
       <section className="sample-request-section">
@@ -41,26 +34,18 @@ const InterestedSection = () => {
           </div>
 
           <div className="sample-cta-buttons">
-            <a href="#sample-form" className="sample-request-button">
+            <a href="/contact" className="sample-request-button">
               Request a Sample
               <ArrowForward />
             </a>
 
-            <a href="#partnership" className="partner-link">
+            <a href="/contact" className="partner-link">
               Become our Partner
               <ArrowForward />
             </a>
           </div>
         </div>
       </section>
-
-      <button
-        className="back-to-top"
-        onClick={scrollToTop}
-        aria-label="Back to top"
-      >
-        <KeyboardArrowUp className="back-to-top-icon" />
-      </button>
     </>
   );
 };
