@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 5rem 1rem 3rem;
+  padding: 7rem 1rem 4rem;
   box-sizing: border-box;
 }
 
@@ -223,7 +223,7 @@
 @media (max-width: 768px) {
   .news-page,
   .news-article {
-    padding-top: 5rem;
+    padding-top: 7rem;
   }
 
   .news-grid {
