@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Link } from "react-router-dom";
 import InfoIcon from "@mui/icons-material/Info";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
@@ -30,15 +30,25 @@ const Hero = () => {
             change in one solution.
           </p>
           <div className="hero-buttons">
-            <button className="btn green">
-              <AttachMoneyIcon /> INVEST IN US
-            </button>
-            <button className="btn white">
-              <InfoIcon /> EXPLORE THE INNOVATION
-            </button>
-            <button className="btn outline">
-              <FileDownloadIcon /> DOWNLOAD DECK
-            </button>
+
+            <Link to="/donate">
+              <button className="btn green">
+                <AttachMoneyIcon /> INVEST IN US
+              </button>
+            </Link>
+
+            <Link to="/products">
+              <button className="btn white">
+                <InfoIcon /> EXPLORE THE INNOVATION
+              </button>
+            </Link>
+
+            <Link to="/contact">
+              <button className="btn outline">
+                <FileDownloadIcon /> DOWNLOAD DECK
+              </button>
+            </Link>
+
           </div>
         </motion.div>
 
