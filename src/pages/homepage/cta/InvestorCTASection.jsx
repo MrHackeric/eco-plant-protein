@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './InvestorCTASection.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 
 if (typeof window !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 
@@ -12,10 +13,9 @@ const InvestorCTASection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Title animation
       gsap.fromTo(
         titleRef.current,
-        { opacity: 0, y: 50, scale: 0.95 },
+        { opacity: 0, y: 40, scale: 0.95 },
         {
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -24,15 +24,14 @@ const InvestorCTASection = () => {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 1.2,
-          ease: 'bounce.out',
+          duration: 1,
+          ease: 'power3.out',
         }
       );
 
-      // Button stagger animation
       gsap.fromTo(
         buttonRefs.current,
-        { opacity: 0, y: 30, scale: 0.9 },
+        { opacity: 0, y: 20, scale: 0.95 },
         {
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -42,12 +41,11 @@ const InvestorCTASection = () => {
           y: 0,
           scale: 1,
           duration: 1,
-          stagger: 0.25,
-          ease: 'elastic.out(1, 0.4)',
+          stagger: 0.2,
+          ease: 'back.out(1.7)',
         }
       );
 
-      // Floating parallax section animation
       gsap.to(sectionRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -63,24 +61,32 @@ const InvestorCTASection = () => {
     return () => ctx.revert();
   }, []);
 
+  const links = ['/contact', '/donate', '/contact'];
+  const labels = [
+    '📩 Schedule a Call',
+    '💸 Invest in the Future of Food',
+    '📊 Access Pitch Deck',
+  ];
+
   return (
     <section className="investor-cta-section" ref={sectionRef}>
-      <h2 ref={titleRef}>
-        🚀 Join us in scaling East Africa’s first{' '}
-        <span className="highlight">AI-powered, zero-waste protein factory.</span>
-      </h2>
-      <div className="cta-buttons">
-        {['📩 Schedule a Call', '💸 Invest in the Future of Food', '📊 Access Pitch Deck'].map(
-          (label, index) => (
-            <button
-              key={index}
-              className="cta-btn"
-              ref={(el) => (buttonRefs.current[index] = el)}
-            >
-              <span className="sparkle">{label}</span>
-            </button>
-          )
-        )}
+      <div className="cta-content">
+        <h2 ref={titleRef}>
+          🚀 Join us in scaling East Africa’s first{' '}
+          <span className="highlight">AI-powered, zero-waste protein factory.</span>
+        </h2>
+        <div className="cta-buttons">
+          {labels.map((label, index) => (
+            <Link to={links[index]} key={index}>
+              <button
+                className="cta-btn"
+                ref={(el) => (buttonRefs.current[index] = el)}
+              >
+                <span className="sparkle">{label}</span>
+              </button>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

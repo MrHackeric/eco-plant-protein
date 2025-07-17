@@ -3,7 +3,7 @@ import "./SolutionSection.css";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import solutionImage from "../../../assets/images/hero-bg.jpg"; // Replace with your own asset
+import solutionImage from "../../../assets/images/solution-img.jpg";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +13,7 @@ const SolutionSection = () => {
   const introRef = useRef(null);
   const pointsRef = useRef([]);
   const imageRef = useRef(null);
+  const contentRef = useRef(null); // Added for border animation
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -21,6 +22,17 @@ const SolutionSection = () => {
         y: 100,
         duration: 1.2,
         ease: "power3.out",
+      });
+
+      gsap.from(contentRef.current, {
+        scrollTrigger: {
+          trigger: contentRef.current,
+          start: "top 90%",
+        },
+        borderWidth: 0,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power2.out",
       });
 
       gsap.from(headingRef.current, {
@@ -78,7 +90,7 @@ const SolutionSection = () => {
 
   return (
     <section className="breakthrough-section" ref={sectionRef}>
-      <div className="breakthrough-content">
+      <div className="breakthrough-content bordered-container" ref={contentRef}>
         <div className="breakthrough-text">
           <h2 ref={headingRef}>🌿 Our Breakthrough Solution</h2>
           <p ref={introRef}>

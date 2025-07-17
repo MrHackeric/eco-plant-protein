@@ -9,6 +9,8 @@
   --gray: #555;
   --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.1);
   --font-main: 'Red Hat Display', sans-serif;
+  --border-radius-lg: 20px;
+  --border-color: rgba(4, 113, 61, 0.2);
 }
 
 .breakthrough-section {
@@ -20,7 +22,8 @@
   font-family: var(--font-main);
 }
 
-.breakthrough-content {
+/* Bordered and animated container */
+.bordered-container {
   max-width: 1300px;
   width: 100%;
   display: flex;
@@ -28,6 +31,19 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem;
+  background-color: var(--white);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Subtle hover enhancement */
+.bordered-container:hover {
+  border-color: var(--primary-green);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
 }
 
 .breakthrough-text {
@@ -105,5 +121,9 @@
 
   .breakthrough-text {
     padding: 0 1rem;
+  }
+
+  .bordered-container {
+    padding: 2rem;
   }
 }
