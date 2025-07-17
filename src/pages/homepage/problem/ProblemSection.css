@@ -33,6 +33,10 @@
   box-shadow: var(--shadow-lg);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 550px; /* ✅ Fixed overall height */
 }
 
 .problem-card::before {
@@ -46,7 +50,7 @@
 .problem-text {
   position: relative;
   z-index: 2;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .problem-text h2 {
@@ -78,9 +82,10 @@
   transition: var(--transition);
   max-width: 700px;
   margin: 0 auto;
-  min-height: 160px; /* ✅ Add this line */
-  justify-content: center; /* ✅ Keeps content vertically centered */
-  text-align: center; /* ✅ Optional for clean layout */
+  height: 180px; /* ✅ Fixed height to avoid layout shift */
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
 }
 
 .crisis-icon {
@@ -90,10 +95,12 @@
 }
 
 .crisis-text {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  line-height: 1.6;
+  line-height: 1.5;
   max-width: 600px;
+  word-break: break-word;
+  padding: 0 1rem;
 }
 
 @keyframes icon-bounce {
@@ -105,16 +112,45 @@
   }
 }
 
+/* ✅ Responsive Adjustments */
 @media (max-width: 768px) {
   .problem-card {
-    padding: 3rem 2rem;
+    padding: 2.5rem 1.5rem;
+    min-height: 500px;
   }
 
   .animated-crisis-card {
-    min-height: 160px;
+    height: 180px;
+    padding: 1.5rem;
   }
-  
+
   .crisis-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .problem-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .problem-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .problem-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .crisis-icon {
+    font-size: 2rem;
+  }
+
+  .crisis-text {
+    font-size: 1rem;
+  }
+
+  .animated-crisis-card {
+    height: 170px;
   }
 }

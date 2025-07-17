@@ -10,6 +10,8 @@ import Footer from "../components/footer/Footer";
 import ProductPage from "./product/ProductPage";
 import ScrollToTop from "./ScrollToTop";
 import DonationPage from "./donation/DonationPage";
+import ScrollControls from "../components/scroll/ScrollControls";
+
 function MainPage() {
   return (
     <>
@@ -25,6 +27,7 @@ function MainPage() {
         <Route path="/donate" element={<DonationPage />} />
       </Routes>
       <Footer />
+      <ScrollControls />
     </>
   );
 }

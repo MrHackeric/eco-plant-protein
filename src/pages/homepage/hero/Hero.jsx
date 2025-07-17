@@ -25,7 +25,9 @@ const Hero = () => {
             Revolutionizing Nutrition with AI & Agro-Waste.
           </h1>
           <p className="hero-description">
-            We turn discarded corn cobs into high-value, plant-based protein using AI-optimized fermentation—tackling hunger, waste, and climate change in one solution.
+            We turn discarded corn cobs into high-value, plant-based protein
+            using AI-optimized fermentation—tackling hunger, waste, and climate
+            change in one solution.
           </p>
           <div className="hero-buttons">
             <button className="btn green">
