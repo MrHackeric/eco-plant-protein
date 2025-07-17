@@ -11,6 +11,8 @@ import ProductPage from "./product/ProductPage";
 import ScrollToTop from "./ScrollToTop";
 import DonationPage from "./donation/DonationPage";
 import ScrollControls from "../components/scroll/ScrollControls";
+import NewsPage from "./news/NewsPage";
+import NewsArticle from "./news/NewsArticle";
 
 function MainPage() {
   return (
@@ -25,6 +27,8 @@ function MainPage() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/donate" element={<DonationPage />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/news/:id" element={<NewsArticle />} />
       </Routes>
       <Footer />
       <ScrollControls />
