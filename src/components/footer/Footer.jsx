@@ -98,12 +98,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <div className="legal-links">
-            <Link
-              to="/privacy-policy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="legal-link"
-            >
+            <Link to="/privacy-policy" className="legal-link">
               Privacy Policy
             </Link>
           </div>

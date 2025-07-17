@@ -6,14 +6,10 @@ const PrivacyPolicy = () => {
   return (
     <div className="privacy-policy">
       <Helmet>
-        <title>Privacy Policy | EcoPlantProtein</title>
-        <meta
-          name="description"
-          content="Learn how EcoPlantProtein collects, uses, and protects your personal data in compliance with GDPR and other privacy laws."
-        />
+        <title>Privacy Policy - EcoPlantProtein</title>
       </Helmet>
 
-      <div className="policy-container">
+      <div className="privacy-policy-container">
         <header className="policy-header">
           <h1>Privacy Policy</h1>
           <p className="effective-date">
@@ -41,125 +37,67 @@ const PrivacyPolicy = () => {
           <h2>2. Data We Collect</h2>
           <h3>Personal Data</h3>
           <ul>
-            <li>
-              <strong>Contact Information:</strong> Name, email, phone number,
-              company name
-            </li>
-            <li>
-              <strong>Business Information:</strong> Job title, industry,
-              project details
-            </li>
-            <li>
-              <strong>Payment Data:</strong> Billing address (processed securely
-              via third-party providers)
-            </li>
+            <li><strong>Contact Information:</strong> Name, email, phone, company</li>
+            <li><strong>Business Information:</strong> Title, industry, project</li>
+            <li><strong>Payment Data:</strong> Billing address (securely processed)</li>
           </ul>
 
           <h3>Automatically Collected Data</h3>
           <ul>
-            <li>
-              <strong>Usage Data:</strong> IP address, browser type, device
-              information
-            </li>
-            <li>
-              <strong>Cookies:</strong> Session cookies, analytics cookies (see
-              Section 6)
-            </li>
+            <li><strong>Usage Data:</strong> IP, browser, device info</li>
+            <li><strong>Cookies:</strong> Session & analytics cookies (see Section 6)</li>
           </ul>
         </section>
 
         <section className="policy-section">
           <h2>3. Legal Basis for Processing (GDPR)</h2>
-          <p>
-            For EU users, we process your data under the following legal bases:
-          </p>
           <ul>
-            <li>
-              <strong>Contractual Necessity:</strong> To fulfill sample requests
-              or partnerships
-            </li>
-            <li>
-              <strong>Legitimate Interest:</strong> Website analytics and
-              service improvement
-            </li>
-            <li>
-              <strong>Consent:</strong> For marketing communications (you may
-              withdraw anytime)
-            </li>
+            <li><strong>Contractual Necessity:</strong> For samples/partnerships</li>
+            <li><strong>Legitimate Interest:</strong> Analytics & improvement</li>
+            <li><strong>Consent:</strong> Marketing communications</li>
           </ul>
         </section>
 
         <section className="policy-section">
           <h2>4. How We Use Your Data</h2>
-          <div className="usage-table">
-            <div className="usage-row header">
-              <div className="usage-purpose">Purpose</div>
-              <div className="usage-data">Data Type</div>
-            </div>
-            <div className="usage-row">
-              <div className="usage-purpose">Process inquiries and samples</div>
-              <div className="usage-data">Contact + Business Info</div>
-            </div>
-            <div className="usage-row">
-              <div className="usage-purpose">Website optimization</div>
-              <div className="usage-data">Usage Data + Cookies</div>
-            </div>
-            <div className="usage-row">
-              <div className="usage-purpose">Security monitoring</div>
-              <div className="usage-data">IP Address + Device Data</div>
-            </div>
-          </div>
+          <ul>
+            <li>To process inquiries and send product samples</li>
+            <li>To improve website functionality and user experience</li>
+            <li>To monitor security and detect suspicious activity</li>
+            <li>To communicate with you regarding your requests</li>
+          </ul>
         </section>
 
         <section className="policy-section">
           <h2>5. Data Sharing & Third Parties</h2>
           <p>We may share data with:</p>
           <ul>
-            <li>
-              <strong>Service Providers:</strong> Payment processors, hosting
-              providers
-            </li>
-            <li>
-              <strong>Business Partners:</strong> Only with your explicit
-              consent
-            </li>
-            <li>
-              <strong>Legal Requirements:</strong> When required by law
-            </li>
+            <li><strong>Service Providers:</strong> Payment, hosting, analytics</li>
+            <li><strong>Business Partners:</strong> With your explicit consent</li>
+            <li><strong>Legal Requirements:</strong> When required by law</li>
           </ul>
           <p>We never sell your personal data.</p>
         </section>
 
         <section className="policy-section">
           <h2>6. Cookies Policy</h2>
-          <p>We use:</p>
           <ul>
-            <li>
-              <strong>Essential Cookies:</strong> Necessary for website
-              functionality
-            </li>
-            <li>
-              <strong>Analytics Cookies:</strong> Google Analytics (anonymized
-              data)
-            </li>
+            <li><strong>Essential Cookies:</strong> Core website functionality</li>
+            <li><strong>Analytics Cookies:</strong> Google Analytics (anonymized)</li>
           </ul>
-          <p>
-            You can manage cookies via browser settings or our Cookie Consent
-            Banner.
-          </p>
+          <p>Manage cookies via your browser or our Cookie Banner.</p>
         </section>
 
         <section className="policy-section">
           <h2>7. Your Rights</h2>
-          <p>Under GDPR and other privacy laws, you have the right to:</p>
           <ul>
             <li>Access, correct, or delete your data</li>
             <li>Restrict or object to processing</li>
             <li>Data portability</li>
-            <li>Withdraw consent</li>
+            <li>Withdraw consent anytime</li>
           </ul>
           <p>
-            To exercise these rights, contact us at{" "}
+            Contact us at{" "}
             <a href="mailto:privacy@ecoplantprotein.com">
               privacy@ecoplantprotein.com
             </a>
@@ -169,39 +107,29 @@ const PrivacyPolicy = () => {
 
         <section className="policy-section">
           <h2>8. Data Security</h2>
-          <p>We implement:</p>
           <ul>
             <li>SSL/TLS encryption</li>
-            <li>Regular security audits</li>
-            <li>Access controls</li>
+            <li>Routine audits</li>
+            <li>Access control systems</li>
           </ul>
-          <p>Despite these measures, no system is 100% secure.</p>
+          <p>Note: No system is 100% secure.</p>
         </section>
 
         <section className="policy-section">
           <h2>9. Policy Updates</h2>
           <p>
-            We may update this policy periodically. The "Effective Date" at the
-            top will indicate revisions.
+            We may update this policy occasionally. The “Effective Date” at the top will reflect the latest changes.
           </p>
         </section>
 
         <section className="policy-section contact-section">
           <h2>10. Contact Us</h2>
-          <p>For privacy-related questions:</p>
           <address>
-            EcoPlantProtein GmbH
-            <br />
-            Attn: Data Protection Officer
-            <br />
-            [Company Address]
-            <br />
-            Vienna, Austria
-            <br />
-            Email:{" "}
-            <a href="mailto:privacy@ecoplantprotein.com">
-              privacy@ecoplantprotein.com
-            </a>
+            EcoPlantProtein GmbH<br />
+            Attn: Data Protection Officer<br />
+            [Company Address]<br />
+            Vienna, Austria<br />
+            Email: <a href="mailto:privacy@ecoplantprotein.com">privacy@ecoplantprotein.com</a>
           </address>
         </section>
       </div>
