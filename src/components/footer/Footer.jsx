@@ -44,27 +44,43 @@ const Footer = () => {
           <div className="footer-section">
             <h3 className="footer-heading">Address</h3>
             <address className="footer-address">
-              123 Greenway Boulevard
+              P.O. Box 536 - 20115
               <br />
-              Eco Valley, CA 90210
+              Egerton, Njoro
               <br />
-              United States
+              KENYA
             </address>
           </div>
 
           <div className="footer-section">
             <h3 className="footer-heading">Follow Us</h3>
             <div className="social-links">
-              <a href="https://facebook.com" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/profile.php?id=61578752545057"
+                target="_blank"
+                aria-label="Facebook"
+              >
                 <Facebook className="social-icon" />
               </a>
-              <a href="https://twitter.com" aria-label="Twitter">
+              <a
+                href="https://x.com/ECOPlant_pro"
+                target="_blank"
+                aria-label="Twitter"
+              >
                 <Twitter className="social-icon" />
               </a>
-              <a href="https://instagram.com" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/ecoplant_pro/"
+                target="_blank"
+                aria-label="Instagram"
+              >
                 <Instagram className="social-icon" />
               </a>
-              <a href="https://linkedin.com" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/in/ecoplant-protein-2181a3376/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
                 <LinkedIn className="social-icon" />
               </a>
             </div>
