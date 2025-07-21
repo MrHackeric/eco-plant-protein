@@ -21,8 +21,13 @@ const PartnershipForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Partnership form submitted:", formData);
-    // Handle form submission
+    const subject = encodeURIComponent(
+      "Partnership Inquiry from " + formData.companyName
+    );
+    const body = encodeURIComponent(
+      `Company Name: ${formData.companyName}\nEmail: ${formData.email}\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:info@ecoplantprotein.com?subject=${subject}&body=${body}`;
   };
 
   return (

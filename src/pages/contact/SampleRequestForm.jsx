@@ -41,8 +41,17 @@ const SampleRequestForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Sample request submitted:", formData);
-    // Handle form submission
+    const subject = encodeURIComponent("Sample Request Form Submission");
+    const body = encodeURIComponent(
+      `Email: ${formData.email}
+Company Name: ${formData.companyName}
+Country: ${formData.country}
+Weight: ${formData.weight}
+Product Type: ${formData.productType}
+Notes: ${formData.notes}
+Agreed to Privacy Policy: ${formData.agreeToPrivacy ? "Yes" : "No"}`
+    );
+    window.location.href = `mailto:info@ecoplantprotein.com?subject=${subject}&body=${body}`;
   };
 
   return (

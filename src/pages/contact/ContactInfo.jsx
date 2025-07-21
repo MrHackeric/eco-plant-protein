@@ -53,12 +53,15 @@ const ContactInfo = ({ onSampleClick, onPartnerClick }) => {
 
             <div className="contact-item">
               <span className="contact-icon">📞</span>
-              <span>+43 664 169 11 37</span>
+              <span>+254708956651</span>
             </div>
 
             <div className="contact-item">
               <LinkedIn className="contact-icon" />
-              <a href="#" className="social-link">
+              <a
+                href="https://www.linkedin.com/in/ecoplant-protein-2181a3376/"
+                className="social-link"
+              >
                 LinkedIn
               </a>
             </div>

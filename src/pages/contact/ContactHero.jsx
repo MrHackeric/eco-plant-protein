@@ -16,11 +16,13 @@ const ContactHero = () => {
           <div className="contact-methods">
             <div className="contact-method">
               <Mail className="contact-icon" />
-              <span>hello@ecoplantprotein.com</span>
+              <span>info@ecoplantprotein.com</span>
             </div>
             <div className="contact-method">
               <Phone className="contact-icon" />
-              <span>(123) 456-7890</span>
+              <a href="tel:+254708956651">
+                <span>+254708956651</span>
+              </a>
             </div>
             <div className="contact-method">
               <Chat className="contact-icon" />
