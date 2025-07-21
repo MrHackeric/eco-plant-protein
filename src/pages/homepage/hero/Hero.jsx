@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import InfoIcon from "@mui/icons-material/Info";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import PitchDeck from "../../../assets/docs/Green and White Modern Agriculture Technology Pitch Deck Presentation.pdf";
 import "./Hero.css";
 
 import heroImage from "../../../assets/images/hero-img.png";
@@ -30,7 +31,6 @@ const Hero = () => {
             change in one solution.
           </p>
           <div className="hero-buttons">
-
             <Link to="/donate">
               <button className="btn green">
                 <AttachMoneyIcon /> INVEST IN US
@@ -43,12 +43,11 @@ const Hero = () => {
               </button>
             </Link>
 
-            <Link to="/contact">
+            <a href={PitchDeck} target="_blank" rel="noopener noreferrer">
               <button className="btn outline">
                 <FileDownloadIcon /> DOWNLOAD DECK
               </button>
-            </Link>
-
+            </a>
           </div>
         </motion.div>
 
