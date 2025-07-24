@@ -3,6 +3,8 @@ import './InvestorCTASection.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import PitchDeck from "../../../assets/docs/Green and White Modern Agriculture Technology Pitch Deck Presentation.pdf";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
 
 if (typeof window !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 
@@ -61,31 +63,50 @@ const InvestorCTASection = () => {
     return () => ctx.revert();
   }, []);
 
-  const links = ['/contact', '/donate', '/contact'];
+  const links = ['/contact', '/donate'];
   const labels = [
-    '📩 Schedule a Call',
-    '💸 Invest in the Future of Food',
-    '📊 Access Pitch Deck',
+    'Schedule a Call',
+    'Invest in the Future of Food',
+    'Access Pitch Deck',
   ];
 
   return (
     <section className="investor-cta-section" ref={sectionRef}>
       <div className="cta-content">
         <h2 ref={titleRef}>
-          🚀 Join us in scaling East Africa’s first{' '}
+          Join us in scaling East Africa’s first{' '}
           <span className="highlight">AI-powered, zero-waste protein factory.</span>
         </h2>
         <div className="cta-buttons">
-          {labels.map((label, index) => (
-            <Link to={links[index]} key={index}>
-              <button
-                className="cta-btn"
-                ref={(el) => (buttonRefs.current[index] = el)}
-              >
-                <span className="sparkle">{label}</span>
-              </button>
-            </Link>
-          ))}
+          {labels.map((label, index) => {
+            if (index === 2) {
+              return (
+                <a
+                  href={PitchDeck}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  key={index}
+                  ref={(el) => (buttonRefs.current[index] = el)}
+                >
+                  <button className="cta-btn outline">
+                    <FileDownloadIcon style={{ marginRight: 8 }} />
+                    DOWNLOAD DECK
+                  </button>
+                </a>
+              );
+            }
+
+            return (
+              <Link to={links[index]} key={index}>
+                <button
+                  className="cta-btn"
+                  ref={(el) => (buttonRefs.current[index] = el)}
+                >
+                  {label}
+                </button>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

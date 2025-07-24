@@ -1,59 +1,58 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { FaDrumstickBite, FaLeaf, FaBiohazard } from "react-icons/fa";
 import "./ProblemSection.css";
 
 const crisisItems = [
   {
     icon: <FaLeaf />,
-    text: "Severe protein deficiency in vulnerable communities",
+    title: "Nutritional Insecurity",
+    description: "Millions face chronic protein deficiency, especially in vulnerable communities.",
   },
   {
     icon: <FaBiohazard />,
-    text: "Agricultural waste pollution (corn cobs are massively underutilized)",
+    title: "Agricultural Waste",
+    description: "Massive underutilization of corn cobs contributes to environmental degradation.",
   },
   {
     icon: <FaDrumstickBite />,
-    text: "Livestock-based protein that worsens climate change",
+    title: "High-Emission Protein",
+    description: "Meat production emits over 14% of global greenhouse gases.",
   },
 ];
 
 const ProblemSection = () => {
-  const [currentCrisis, setCurrentCrisis] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCrisis((prev) => (prev + 1) % crisisItems.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="problem-section">
-      <div className="problem-card">
-        <div className="problem-text">
-          <h2>
-            🌍 One-third of global food is wasted. <br />
-            🧒 1 in 3 children in Kenya is malnourished. <br />
-            🐄 Traditional meat production emits 14.5% of global GHGs.
-          </h2>
-          <p>We are solving three interconnected crises:</p>
+      <motion.div
+        className="problem-container"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="problem-header">
+          <h2>Three urgent global challenges we’re addressing</h2>
+          <p>
+            From malnutrition to food waste to climate change — these crises are deeply connected.
+          </p>
         </div>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentCrisis}
-            className="animated-crisis-card"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="crisis-icon">{crisisItems[currentCrisis].icon}</div>
-            <div className="crisis-text">{crisisItems[currentCrisis].text}</div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+        <div className="crisis-grid">
+          {crisisItems.map((item, index) => (
+            <motion.div
+              key={index}
+              className="crisis-card"
+              whileHover={{ y: -10, boxShadow: "0 12px 32px rgba(0,0,0,0.15)" }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <div className="crisis-icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 };

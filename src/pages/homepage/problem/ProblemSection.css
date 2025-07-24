@@ -15,142 +15,102 @@
 
 .problem-section {
   background-color: var(--light-green);
-  padding: 8rem 2rem;
+  padding: 6rem 2rem;
   font-family: var(--font-main);
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
-.problem-card {
-  background-color: var(--white);
-  border-radius: 32px;
-  max-width: 1100px;
+.problem-container {
+  max-width: 1200px;
   width: 100%;
-  padding: 4rem;
   text-align: center;
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 550px; /* ✅ Fixed overall height */
 }
 
-.problem-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(4, 113, 61, 0.03), rgba(255, 255, 255, 0));
-  z-index: 0;
-}
-
-.problem-text {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 2.5rem;
-}
-
-.problem-text h2 {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
+.problem-header h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
   color: var(--black);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-.problem-text p {
+.problem-header p {
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--gray);
+  margin-bottom: 3rem;
 }
 
-.animated-crisis-card {
+.crisis-grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.crisis-card {
   background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
   color: var(--white);
   border-radius: 20px;
-  box-shadow: var(--shadow-green);
-  position: relative;
-  z-index: 2;
+  padding: 2rem;
+  flex: 1 1 300px;
+  max-width: 360px;
+  text-align: left;
   transition: var(--transition);
-  max-width: 700px;
-  margin: 0 auto;
-  height: 180px; /* ✅ Fixed height to avoid layout shift */
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
+  box-shadow: var(--shadow-green);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: default;
 }
 
 .crisis-icon {
   font-size: 2.5rem;
   color: var(--white);
-  animation: icon-bounce 1s infinite alternate ease-in-out;
 }
 
-.crisis-text {
-  font-size: 1.3rem;
-  font-weight: 600;
+.crisis-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.crisis-card p {
+  font-size: 1.05rem;
   line-height: 1.5;
-  max-width: 600px;
-  word-break: break-word;
-  padding: 0 1rem;
+  color: var(--white);
 }
 
-@keyframes icon-bounce {
-  0% {
-    transform: translateY(0px);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
-}
-
-/* ✅ Responsive Adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .problem-card {
-    padding: 2.5rem 1.5rem;
-    min-height: 500px;
+  .crisis-grid {
+    gap: 1.5rem;
   }
 
-  .animated-crisis-card {
-    height: 180px;
-    padding: 1.5rem;
+  .problem-header h2 {
+    font-size: 1.7rem;
   }
 
-  .crisis-text {
-    font-size: 1.1rem;
-  }
-
-  .problem-text h2 {
-    font-size: 1.6rem;
-  }
-
-  .problem-text p {
-    font-size: 1rem;
+  .problem-header p {
+    font-size: 1.05rem;
   }
 }
 
 @media (max-width: 480px) {
-  .problem-text h2 {
-    font-size: 1.3rem;
+  .crisis-card {
+    padding: 1.5rem;
+  }
+
+  .crisis-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .crisis-card p {
+    font-size: 1rem;
   }
 
   .crisis-icon {
     font-size: 2rem;
-  }
-
-  .crisis-text {
-    font-size: 1rem;
-  }
-
-  .animated-crisis-card {
-    height: 170px;
   }
 }
