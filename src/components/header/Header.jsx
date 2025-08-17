@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, Close, ArrowForward, Favorite } from "@mui/icons-material";
-import logoImage from "../../assets/images/logo.jpg"; // or .png/.jpg
+import logoImage from "../../assets/images/logo.jpg";
 import "./Header.css";
 
 const Header = () => {
@@ -34,11 +34,13 @@ const Header = () => {
   return (
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="header-container">
+        {/* Logo */}
         <Link to="/" className="logo-link">
           <img src={logoImage} alt="EcoNutri Logo" className="logo" />
           <span className="logo-text">Eco Plant Protein</span>
         </Link>
 
+        {/* Menu toggle (mobile) */}
         <button
           className="menu-toggle"
           onClick={toggleMenu}
@@ -47,6 +49,7 @@ const Header = () => {
           {isMenuOpen ? <Close className="menu-icon" /> : <Menu className="menu-icon" />}
         </button>
 
+        {/* Nav Menu */}
         <nav className={`nav ${isMenuOpen ? "mobile-open" : ""}`}>
           <ul>
             {navItems.map((item) => (

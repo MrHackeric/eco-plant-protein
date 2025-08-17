@@ -13,7 +13,7 @@
   --border-color: rgba(4, 113, 61, 0.2);
 }
 
-/* Base Styles */
+/* Section */
 .market-section {
   width: 100%;
   padding: 5rem 1rem;
@@ -22,6 +22,7 @@
   position: relative;
 }
 
+/* Container */
 .market-container {
   display: flex;
   flex-direction: row;
@@ -36,7 +37,7 @@
   position: relative;
 }
 
-/* Image Styles */
+/* Image */
 .market-image-wrapper {
   flex: 1;
   min-width: 300px;
@@ -67,7 +68,7 @@
   transform: scale(1.03);
 }
 
-/* Content Styles */
+/* Content */
 .market-content {
   flex: 1;
   min-width: 300px;
@@ -75,9 +76,7 @@
 }
 
 .market-content h2 {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .title-main {
@@ -87,89 +86,39 @@
   line-height: 1.2;
 }
 
-.title-sub {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  font-weight: 500;
-  color: var(--gray);
-  margin-top: 0.5rem;
-}
-
-.market-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.market-point {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem;
-  background-color: var(--white);
-  border-radius: 12px;
-  border-left: 4px solid var(--primary-green);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.market-point:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(4, 113, 61, 0.1);
-  background-color: rgba(4, 113, 61, 0.03);
-}
-
-.point-icon {
-  flex-shrink: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  background-color: rgba(4, 113, 61, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-green);
-  font-size: 1.25rem;
-  transition: all 0.3s ease;
-}
-
-.market-point:hover .point-icon {
-  background-color: rgba(4, 113, 61, 0.2);
-  transform: scale(1.1);
-}
-
-.point-text {
-  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+/* Paragraphs */
+.market-content p {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   color: var(--black);
-  line-height: 1.6;
-  margin: 0;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
   font-weight: 500;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 1024px) {
   .market-container {
     flex-direction: column;
     padding: 1.5rem;
     gap: 2rem;
   }
-  
+
   .market-image-wrapper {
     width: 100%;
     min-height: 350px;
   }
-  
+
   .market-content {
     width: 100%;
     padding: 0;
   }
-  
+
   .market-content h2 {
     text-align: center;
-    align-items: center;
+  }
+
+  .market-content p {
+    text-align: center;
   }
 }
 
@@ -177,21 +126,12 @@
   .market-section {
     padding: 3rem 1rem;
   }
-  
+
   .market-container {
     padding: 1.25rem;
   }
-  
-  .market-point {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 1rem;
-  }
-  
-  .point-icon {
-    width: 2rem;
-    height: 2rem;
-    font-size: 1rem;
+
+  .market-content p {
+    font-size: 0.95rem;
   }
 }

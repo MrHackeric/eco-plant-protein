@@ -2,41 +2,16 @@ import React, { useEffect, useRef } from "react";
 import "./MarketSection.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  FaChartLine,
-  FaLeaf,
-  FaChild,
-  FaGlobeAfrica,
-} from "react-icons/fa";
 import marketImage from "../../../assets/images/market-img.jpg";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
-
-const points = [
-  {
-    icon: <FaChartLine className="icon" />,
-    text: "Global alternative protein market = $14B by 2027",
-  },
-  {
-    icon: <FaLeaf className="icon" />,
-    text: "Plant-based diets are on the rise",
-  },
-  {
-    icon: <FaChild className="icon" />,
-    text: "Kenya's 1.1M malnourished children urgently need affordable protein",
-  },
-  {
-    icon: <FaGlobeAfrica className="icon" />,
-    text: "Eco-Plant Protein is uniquely positioned with a first-mover advantage in East Africa",
-  },
-];
 
 const MarketSection = () => {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const imageRef = useRef(null);
-  const itemRefs = useRef([]);
   const contentRef = useRef(null);
+  const paragraphsRef = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -62,27 +37,16 @@ const MarketSection = () => {
         ease: "power3.out",
       });
 
-      gsap.from(contentRef.current, {
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: "top 90%",
-        },
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-
-      itemRefs.current.forEach((item, index) => {
-        gsap.from(item, {
+      paragraphsRef.current.forEach((p, index) => {
+        gsap.from(p, {
           scrollTrigger: {
-            trigger: item,
-            start: "top 85%",
+            trigger: p,
+            start: "top 90%",
           },
-          x: 50,
           opacity: 0,
-          duration: 0.6,
-          delay: index * 0.15,
+          y: 40,
+          duration: 0.8,
+          delay: index * 0.2,
           ease: "power2.out",
         });
       });
@@ -98,7 +62,7 @@ const MarketSection = () => {
           <div className="image-overlay"></div>
           <img
             src={marketImage}
-            alt="Market Validation"
+            alt="Market Opportunity"
             className="market-image"
             loading="lazy"
           />
@@ -107,21 +71,22 @@ const MarketSection = () => {
         <div className="market-content" ref={contentRef}>
           <h2 ref={titleRef}>
             <span className="title-main">Market Opportunity</span>
-            <span className="title-sub">Why Now Is The Right Time</span>
           </h2>
-          
-          <ul className="market-list">
-            {points.map((item, index) => (
-              <li
-                key={index}
-                className="market-point"
-                ref={(el) => (itemRefs.current[index] = el)}
-              >
-                <div className="point-icon">{item.icon}</div>
-                <p className="point-text">{item.text}</p>
-              </li>
-            ))}
-          </ul>
+
+          <p ref={(el) => (paragraphsRef.current[0] = el)}>
+            The global plant-based protein market is projected to reach USD 23.4
+            billion by 2028, driven by rising health awareness, climate
+            concerns, and shifting dietary preferences. In Africa alone, over
+            60% of the population is under 25, creating a growing demand for
+            sustainable, affordable nutrition solutions.
+          </p>
+
+          <p ref={(el) => (paragraphsRef.current[1] = el)}>
+            Simultaneously, over 30% of all food produced is wasted, and yet
+            more than 282 million people in Sub-Saharan Africa face food
+            insecurity. Corn cobs—an abundant yet underutilized agricultural
+            waste—represent a vast, untapped resource.
+          </p>
         </div>
       </div>
     </section>

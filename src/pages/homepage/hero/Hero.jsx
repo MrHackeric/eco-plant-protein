@@ -1,64 +1,41 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import InfoIcon from "@mui/icons-material/Info";
-import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import PitchDeck from "../../../assets/docs/Green and White Modern Agriculture Technology Pitch Deck Presentation.pdf";
 import "./Hero.css";
-
-import heroImage from "../../../assets/images/hero-img.png";
 
 const Hero = () => {
   return (
     <section className="hero-section">
-      <div className="hero-overlay" />
+      {/* Dark Overlay */}
+      <motion.div
+        className="hero-overlay"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.55 }}
+        transition={{ duration: 1.2 }}
+      />
+
       <div className="hero-content-wrapper">
         {/* Left Text */}
         <motion.div
           className="hero-text"
-          initial={{ x: -50, opacity: 0 }}
+          initial={{ x: -60, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
-          <span className="hero-badge">eco-plant-protein</span>
-          <h1 className="hero-heading">
-            Revolutionizing Nutrition with AI & Agro-Waste.
-          </h1>
-          <p className="hero-description">
-            We turn discarded corn cobs into high-value, plant-based protein
-            using AI-optimized fermentation—tackling hunger, waste, and climate
-            change in one solution.
-          </p>
-          <div className="hero-buttons">
-            <Link to="/donate">
-              <button className="btn green">
-                <AttachMoneyIcon /> INVEST IN US
-              </button>
-            </Link>
-
-            <Link to="/products">
-              <button className="btn white">
-                <InfoIcon /> EXPLORE THE INNOVATION
-              </button>
-            </Link>
-
-            <a href={PitchDeck} target="_blank" rel="noopener noreferrer">
-              <button className="btn outline">
-                <FileDownloadIcon /> DOWNLOAD DECK
-              </button>
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Right Image */}
-        <motion.div
-          className="hero-image-container"
-          initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1.2 }}
-        >
-          <img src={heroImage} alt="Hero Visual" className="hero-image" />
+          <motion.h1
+            className="hero-heading"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+          >
+            Turning Agricultural Waste into <span> Sustainable & Equitable Nutrition </span> 
+            for all, saving countless lives
+          </motion.h1>
+          <motion.div
+            className="hero-buttons"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
+          >
+          </motion.div>
         </motion.div>
       </div>
     </section>

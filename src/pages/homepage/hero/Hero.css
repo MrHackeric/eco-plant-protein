@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800&display=swap');
 
 :root {
   --primary-green: #04713d;
+  --secondary-green: #0a9e5b;
   --white: #ffffff;
   --black: #000000;
-  --gray: #666666;
+  --gray: #cccccc;
   --font-main: 'Red Hat Display', sans-serif;
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 * {
@@ -18,13 +19,13 @@
 /* HERO SECTION */
 .hero-section {
   position: relative;
-  background: url('../../../assets/images/hero-bg.jpg') center/cover no-repeat;
-  min-height: 100vh; /* Take full height minus header */
-  margin-top: 0;
+  background: url("../../../assets/images/impact-hero.jpeg") center/cover no-repeat;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-main);
+  overflow: hidden;
 }
 
 .hero-overlay {
@@ -38,168 +39,45 @@
   position: relative;
   z-index: 2;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 1440px;
+  max-width: 1200px;
   width: 100%;
-  padding: 2rem 3rem;
-  flex-wrap: nowrap;
-  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+  flex-direction: column;
 }
 
 /* LEFT TEXT */
 .hero-text {
-  flex: 1;
   color: var(--white);
-  max-width: 600px;
-}
-
-.hero-badge {
-  background-color: #7bbf2d;
-  color: #fff;
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
-  display: inline-block;
-  margin-bottom: 1rem;
+  max-width: 750px;
 }
 
 .hero-heading {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 3.8rem);
   font-weight: 800;
   line-height: 1.3;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
-.hero-description {
-  font-size: 1.5rem;
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-}
-
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.hero-buttons a {
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 0.65rem 1.4rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: var(--transition);
-  border: none;
-}
-
-.btn.green {
-  background-color: var(--primary-green);
-  color: var(--white);
-}
-
-.btn.green:hover {
-  background-color: #035b30;
-}
-
-.btn.white {
-  background-color: #ffffff;
-  color: var(--primary-green);
-}
-
-.btn.white:hover {
-  background-color: #f1f1f1;
-}
-
-.btn.outline {
-  background: transparent;
-  border: 2px solid #fff;
-  color: #fff;
-}
-
-.btn.outline:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* RIGHT IMAGE */
-.hero-image-container {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.hero-image {
-  width: 1500px;
-  max-width: 200%;
-  height: auto;
-  object-fit: contain;
-  transform: translateX(400px);
+.hero-heading span {
+  color: var(--secondary-green);
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 1024px) {
-  .hero-section {
-    height: auto;
-    padding: 4rem 0;
-  }
-
+@media (max-width: 768px) {
   .hero-content-wrapper {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .hero-text {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .hero-image-container {
-    justify-content: center;
-  }
-
-  .hero-image {
-    width: 100%;
-    max-width: 90%;
+    padding: 1.5rem;
   }
 
   .hero-heading {
     font-size: 2rem;
   }
-
-  .hero-description {
-    font-size: 0.95rem;
-  }
-
-  .btn {
-    justify-content: center;
-    font-size: 0.85rem;
-    padding: 0.6rem 1.2rem;
-  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .hero-heading {
-    font-size: 1.7rem;
-  }
-
-  .hero-description {
-    font-size: 0.9rem;
-  }
-
-  .btn {
-    width: 100%;
-    justify-content: center;
+    font-size: 1.6rem;
   }
 }

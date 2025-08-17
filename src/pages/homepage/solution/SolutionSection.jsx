@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import "./SolutionSection.css";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import solutionImage from "../../../assets/images/solution-img.jpg";
@@ -10,78 +9,58 @@ if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 const SolutionSection = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
-  const introRef = useRef(null);
-  const pointsRef = useRef([]);
+  const paragraphsRef = useRef([]);
   const imageRef = useRef(null);
-  const contentRef = useRef(null); // Added for border animation
+  const contentRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(sectionRef.current, {
+      gsap.from(contentRef.current, {
         opacity: 0,
-        y: 100,
+        y: 80,
         duration: 1.2,
         ease: "power3.out",
-      });
-
-      gsap.from(contentRef.current, {
         scrollTrigger: {
           trigger: contentRef.current,
-          start: "top 90%",
+          start: "top 85%",
         },
-        borderWidth: 0,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power2.out",
       });
 
       gsap.from(headingRef.current, {
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 90%",
-        },
         opacity: 0,
         y: 40,
         duration: 1,
         delay: 0.2,
         ease: "power2.out",
-      });
-
-      gsap.from(introRef.current, {
         scrollTrigger: {
-          trigger: introRef.current,
+          trigger: headingRef.current,
           start: "top 90%",
         },
+      });
+
+      gsap.from(paragraphsRef.current, {
         opacity: 0,
         y: 30,
         duration: 1,
+        stagger: 0.3,
         delay: 0.4,
         ease: "power2.out",
-      });
-
-      gsap.from(pointsRef.current, {
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: contentRef.current,
           start: "top 85%",
         },
-        opacity: 0,
-        y: 20,
-        duration: 1,
-        stagger: 0.3,
-        delay: 0.6,
-        ease: "power2.out",
       });
 
       gsap.from(imageRef.current, {
+        scale: 0.9,
+        opacity: 0,
+        duration: 1.4,
+        delay: 0.5,
+        ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: imageRef.current,
           start: "top 85%",
         },
-        scale: 0.95,
-        opacity: 0,
-        duration: 1.4,
-        delay: 0.6,
-        ease: "back.out(1.7)",
       });
     }, sectionRef);
 
@@ -89,31 +68,29 @@ const SolutionSection = () => {
   }, []);
 
   return (
-    <section className="breakthrough-section" ref={sectionRef}>
-      <div className="breakthrough-content bordered-container" ref={contentRef}>
-        <div className="breakthrough-text">
-          <h2 ref={headingRef}>🌿 Our Breakthrough Solution</h2>
-          <p ref={introRef}>
-            Eco-Plant Protein is a digital food-tech startup that upcycles agro-waste using AI-guided fermentation to produce <strong>meat-like protein</strong> that’s <strong>nutrient-rich</strong>, <strong>low-cost</strong>, and <strong>climate-smart</strong>.
-          </p>
-          <ul className="breakthrough-points">
-            {[
-              "✔ AI calibrates fermentation for max protein yield",
-              "✔ Corn cobs transformed into digestible protein",
-              "✔ A product that mimics meat—but greener and cheaper",
-            ].map((point, i) => (
-              <li key={i} ref={(el) => (pointsRef.current[i] = el)}>
-                {point}
-              </li>
-            ))}
-          </ul>
+    <section className="solution-section" ref={sectionRef}>
+      <div className="solution-container" ref={contentRef}>
+        {/* Text Section */}
+        <div className="solution-text">
+          <h2 ref={headingRef}>🌿 Our Solution</h2>
+          {[
+            "At Eco-Plant Protein, we’ve developed an innovative, AI-powered fermentation technology that transforms agricultural waste—specifically corn cobs—into high-quality, digestible plant protein. This circular solution not only diverts biomass from polluting the environment but also produces an affordable and sustainable alternative to meat protein.",
+            "Using machine learning algorithms, we optimize fermentation parameters in real time, ensuring consistent production of single-cell protein with the right amino acid profile for human consumption. This breakthrough process delivers a safe, scalable, and climate-smart food innovation that supports communities facing food insecurity, malnutrition, and economic hardship.",
+            "Our protein can be integrated into school feeding programs, emergency nutrition packs, or consumer-ready vegan products. It’s a game-changer for regions vulnerable to climate change, resource scarcity, and nutritional inequality.",
+          ].map((text, i) => (
+            <p key={i} ref={(el) => (paragraphsRef.current[i] = el)}>
+              {text}
+            </p>
+          ))}
         </div>
-        <div className="breakthrough-image-wrapper">
-          <div className="breakthrough-glow" />
+
+        {/* Image Section */}
+        <div className="solution-image-wrapper">
+          <div className="solution-glow" />
           <img
             src={solutionImage}
-            alt="Breakthrough Illustration"
-            className="breakthrough-image"
+            alt="Eco-Plant Protein Solution"
+            className="solution-image"
             ref={imageRef}
           />
         </div>
