@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./MarketSection.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import marketImage from "../../../assets/images/market-img.jpg";
+import marketImage from "../../../assets/images/market-img.JPG";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
