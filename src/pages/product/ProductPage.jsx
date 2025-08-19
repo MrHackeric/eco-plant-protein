@@ -7,7 +7,7 @@ import InnovationSection from "./innovation/InnovationSection";
 import HowItWorksSection from "./works/HowItWorksSection";
 import WhyItMatters from "./why/WhyItMatters";
 import ContactCTA from "./contact/ContactCTA";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 function ProductPage() {
 

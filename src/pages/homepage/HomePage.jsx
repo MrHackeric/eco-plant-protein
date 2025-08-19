@@ -6,7 +6,7 @@ import VideoSection from "./video/VideoSection";
 import ProblemSection from "./problem/ProblemSection";
 import MarketSection from "./market/MarketSection";
 import InvestorCTASection from "./cta/InvestorCTASection";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 // Import your animation hook
 import { useScrollAnimation } from "../../hooks/useScrollAnimation"; // adjust path as needed
